@@ -64,16 +64,6 @@ spring:
   config:
     activate:
       on-profile: development
-  # OAuth 설정
-  security:
-    oauth2.client:
-      registration:
-        google:
-          clientId: '{구글 client-id}'
-          clientSecret: '{구글 client-secret}'
-          scope:
-            - email
-            - profile
 
 cors:
   allowed-origins: 'http://localhost:3000'
