@@ -22,7 +22,7 @@ public class User extends BaseTimeEntity {
     @Column(name = "user_id", length = 64, unique = true, nullable = false)
     private String userId;
 
-    @Column(name = "username", length = 100, unique = true, nullable = false)
+    @Column(name = "username", length = 100, nullable = false)
     private String username;
 
     @Column(name = "password", length = 128, nullable = false)
@@ -46,7 +46,6 @@ public class User extends BaseTimeEntity {
     private RoleType roleType;
 
     @Builder
-
     public User(Long id, String userId, String username, String password, String email, String emailVerifiedYn, String profileImageUrl, ProviderType providerType, RoleType roleType) {
         this.id = id;
         this.userId = userId;
@@ -57,5 +56,15 @@ public class User extends BaseTimeEntity {
         this.profileImageUrl = profileImageUrl;
         this.providerType = providerType;
         this.roleType = roleType;
+    }
+
+    public void updateNameAndImageUrl(String username, String profileImageUrl) {
+        if (username != null && !getUsername().equals(username)) {
+            this.username = username;
+        }
+
+        if (profileImageUrl != null && !getProfileImageUrl().equals(profileImageUrl)) {
+            this.profileImageUrl = profileImageUrl;
+        }
     }
 }
