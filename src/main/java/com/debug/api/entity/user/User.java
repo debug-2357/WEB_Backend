@@ -2,6 +2,7 @@ package com.debug.api.entity.user;
 
 import com.debug.api.entity.BaseTimeEntity;
 import com.debug.oauth.entity.ProviderType;
+import com.debug.oauth.entity.RoleType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,10 +39,15 @@ public class User extends BaseTimeEntity {
 
     @Column(name = "provider_type", length = 20, nullable = false)
     @Enumerated(EnumType.STRING)
-    private ProviderType roleType;
+    private ProviderType providerType;
+
+    @Column(name = "role_type", length = 20, nullable = false)
+    @Enumerated(EnumType.STRING)
+    private RoleType roleType;
 
     @Builder
-    public User(Long id, String userId, String username, String password, String email, String emailVerifiedYn, String profileImageUrl, ProviderType roleType) {
+
+    public User(Long id, String userId, String username, String password, String email, String emailVerifiedYn, String profileImageUrl, ProviderType providerType, RoleType roleType) {
         this.id = id;
         this.userId = userId;
         this.username = username;
@@ -49,6 +55,7 @@ public class User extends BaseTimeEntity {
         this.email = email;
         this.emailVerifiedYn = emailVerifiedYn;
         this.profileImageUrl = profileImageUrl;
+        this.providerType = providerType;
         this.roleType = roleType;
     }
 }
