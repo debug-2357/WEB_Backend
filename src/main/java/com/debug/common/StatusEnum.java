@@ -1,5 +1,8 @@
 package com.debug.common;
 
+import lombok.Getter;
+
+@Getter
 public enum StatusEnum {
     OK(200, "OK"),
     CREATED(201, "CREATED"),

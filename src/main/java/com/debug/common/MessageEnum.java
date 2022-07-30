@@ -1,5 +1,8 @@
 package com.debug.common;
 
+import lombok.Getter;
+
+@Getter
 public enum MessageEnum {
 
     OK("요청 성공"),
