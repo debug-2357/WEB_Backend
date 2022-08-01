@@ -13,9 +13,9 @@ public class ApiBody {
     private Object data;
 
     @Builder
-    public ApiBody(StatusEnum status, String message, Object data) {
+    public ApiBody(StatusEnum status, MessageEnum message, Object data) {
         this.status = status;
-        this.message = message;
+        this.message = message.getMessage();
         this.data = data;
     }
 }
