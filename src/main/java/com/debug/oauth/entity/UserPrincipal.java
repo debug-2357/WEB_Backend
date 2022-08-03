@@ -88,7 +88,7 @@ public class UserPrincipal implements OAuth2User, UserDetails, OidcUser {
                 user.getPassword(),
                 user.getProviderType(),
                 RoleType.UNCONFIRMED,
-                Collections.singletonList(new SimpleGrantedAuthority(RoleType.UNCONFIRMED.getCode()))
+                Collections.singletonList(new SimpleGrantedAuthority(RoleType.UNCONFIRMED.getAuthority()))
         );
     }
 
@@ -98,7 +98,7 @@ public class UserPrincipal implements OAuth2User, UserDetails, OidcUser {
                 user.getPassword(),
                 user.getProviderType(),
                 RoleType.UNCONFIRMED,
-                Collections.singletonList(new SimpleGrantedAuthority(RoleType.UNCONFIRMED.getCode())),
+                Collections.singletonList(new SimpleGrantedAuthority(RoleType.UNCONFIRMED.getAuthority())),
                 attributes
         );
     }
