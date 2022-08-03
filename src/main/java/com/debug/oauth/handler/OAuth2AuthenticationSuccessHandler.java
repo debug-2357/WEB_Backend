@@ -43,8 +43,10 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
     private final UserRefreshTokenRepository userRefreshTokenRepository;
     private final OAuth2AuthorizationRequestBasedOnCookieRepository authorizationRequestRepository;
 
+    // 성공할 경우 메소드
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
+        // determineTargetUrl 메소드를 이용해 클라이언트 uri를 구성
         String targetUrl = determineTargetUrl(request, response, authentication);
 
         if (response.isCommitted()) {
@@ -52,18 +54,29 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
             return;
         }
 
+        // request, session에 존재하는 인증 정보들 삭제
         clearAuthenticationAttributes(request, response);
+        // 인증 정보들을 포함해서 targetUrl로 리다이렉션
         getRedirectStrategy().sendRedirect(request, response, targetUrl);
     }
 
+    /**
+     * 클라이언트 uri를 param에 토큰을 포함해서 uri를 구성하는 메소드
+     * @param request request
+     * @param response response
+     * @param authentication 인증
+     * @return uri
+     */
     protected String determineTargetUrl(HttpServletRequest request, HttpServletResponse response, Authentication authentication) {
         Optional<String> redirectUri = CookieUtil.getCookie(request, REDIRECT_URL_PARAM_COOKIE_NAME)
                 .map(Cookie::getValue);
 
+        // redirectUri가 값이 있고 프로퍼티에 지정한 클라이언트 uri과 다를경우 예외처리
         if (redirectUri.isPresent() && !isAuthorizedRedirectUri(redirectUri.get())) {
             throw new IllegalArgumentException("Sorry! We've got an Unauthorized Redirect URI and can't proceed with authentication");
         }
 
+        // redirectUri가 null이 아니면 값을 가져오고 null이면 기본 uri(서버 uri)를 targetUrl에 저장한다.
         String targetUrl = redirectUri.orElse(getDefaultTargetUrl());
 
         OAuth2AuthenticationToken authToken = (OAuth2AuthenticationToken) authentication;
@@ -73,12 +86,12 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         OAuth2UserInfo userInfo = OAuth2UserInfoFactory.getOAuth2UserInfo(providerType, user.getAttributes());
         Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
 
-        RoleType roleType = hasAuthority(authorities, RoleType.ADMIN.getCode()) ? RoleType.ADMIN : RoleType.UNCONFIRMED;
+        RoleType roleType = hasAuthority(authorities, RoleType.ADMIN.getAuthority()) ? RoleType.ADMIN : RoleType.UNCONFIRMED;
 
         Date now = new Date();
         AuthToken accessToken = tokenProvider.createAuthToken(
                 userInfo.getId(),
-                roleType.getCode(),
+                roleType.getAuthority(),
                 new Date(now.getTime() + appProperties.getAuth().getTokenExpiry())
         );
 
@@ -102,9 +115,11 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
         int cookieMaxAge = (int) refreshTokenExpiry / 60;
 
+        // 쿠키에 리프레쉬 토큰 저장
         CookieUtil.deleteCookie(request, response, REFRESH_TOKEN);
         CookieUtil.addCookie(response, REFRESH_TOKEN, refreshToken.getToken(), cookieMaxAge);
 
+        // targetUrl을 바탕, param인 token을 포함하고 url을 구성해 반환
         return UriComponentsBuilder.fromUriString(targetUrl)
                 .queryParam("token", accessToken.getToken())
                 .build()
@@ -112,7 +127,9 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
     }
 
     protected void clearAuthenticationAttributes(HttpServletRequest request, HttpServletResponse response) {
+        // 세션에 인증 정보 삭제
         super.clearAuthenticationAttributes(request);
+        // request 쿠키에 있는 부가적인 정보를 삭제한다.
         authorizationRequestRepository.removeAuthorizationRequestCookies(request, response);
     }
 
@@ -130,6 +147,11 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         return false;
     }
 
+    /**
+     * appProperties에 지정한 클라이언트 uri과 요청된 uri의 서버와 포트가 같은지 비교
+     * @param uri request uri
+     * @return boolean
+     */
     private boolean isAuthorizedRedirectUri(String uri) {
         URI clientRedirectUri = URI.create(uri);
 
