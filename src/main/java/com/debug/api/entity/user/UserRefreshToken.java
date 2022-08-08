@@ -16,15 +16,16 @@ public class UserRefreshToken {
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
-    @Column(name = "user_id", length = 64, unique = true, nullable = false)
-    private String userId;
+    @OneToOne
+    @JoinColumn(name = "user_id", unique = true, nullable = false)
+    private User user;
 
     @Column(name = "refresh_token", length = 256, nullable = false)
     private String refreshToken;
 
     @Builder
-    public UserRefreshToken(String userId, String refreshToken) {
-        this.userId = userId;
+    public UserRefreshToken(User user, String refreshToken) {
+        this.user = user;
         this.refreshToken = refreshToken;
     }
 

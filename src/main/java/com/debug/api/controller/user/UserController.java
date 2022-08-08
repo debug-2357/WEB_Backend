@@ -1,10 +1,10 @@
 package com.debug.api.controller.user;
 
-import com.debug.api.entity.user.User;
+import com.debug.api.dto.response.UserResponse;
 import com.debug.api.service.UserService;
-import com.debug.oauth.entity.UserPrincipal;
+import com.debug.common.StatusEnum;
+import com.debug.common.response.SuccessResponseBody;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,9 +20,9 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public ResponseEntity<Object> getUser(@AuthenticationPrincipal UserDetails userDetails) {
+    public ResponseEntity<SuccessResponseBody> getUser(@AuthenticationPrincipal UserDetails userDetails) {
 
-        User user = userService.getUser(userDetails.getUsername());
-        return new ResponseEntity<>(user.getUsername(), HttpStatus.OK);
+        UserResponse userResponse = userService.getByUserId(userDetails.getUsername());
+        return SuccessResponseBody.toResponseEntity(StatusEnum.GET_USER_INFO, userResponse);
     }
 }

@@ -11,6 +11,7 @@ import com.debug.oauth.info.OAuth2UserInfoFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
@@ -49,7 +50,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         ProviderType providerType = ProviderType.valueOf(userRequest.getClientRegistration().getRegistrationId().toUpperCase());
 
         OAuth2UserInfo userInfo = OAuth2UserInfoFactory.getOAuth2UserInfo(providerType, user.getAttributes());
-        User savedUser = userRepository.findByUserId(userInfo.getId());
+        User savedUser = userRepository.findByUserId(userInfo.getId()).orElse(null);
 
         // 저장된 유저가 있으면
         if (savedUser != null) {
@@ -77,7 +78,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         User user = User.builder()
                 .userId(userInfo.getId())
                 .username(userInfo.getName())
-                .password("{noop}NO_PASS")
+                .password(new BCryptPasswordEncoder().encode("NO_PASS"))
                 .email(Optional.ofNullable(userInfo.getEmail()).orElse("NO_EMAIL"))
                 .emailVerifiedYn("Y")
                 .profileImageUrl(Optional.ofNullable(userInfo.getImageUrl()).orElse(""))

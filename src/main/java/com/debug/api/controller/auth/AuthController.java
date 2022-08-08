@@ -1,10 +1,15 @@
 package com.debug.api.controller.auth;
 
 import com.debug.api.dto.request.AuthRequest;
+import com.debug.api.entity.user.User;
 import com.debug.api.entity.user.UserRefreshToken;
-import com.debug.api.repository.user.UserRefreshTokenRepository;
-import com.debug.common.ApiBody;
-import com.debug.common.MessageEnum;
+import com.debug.api.exception.InvalidAccessTokenException;
+import com.debug.api.exception.InvalidRefreshTokenException;
+import com.debug.api.exception.LoginFailedException;
+import com.debug.api.exception.UnexpiredAccessTokenException;
+import com.debug.api.service.UserRefreshTokenService;
+import com.debug.common.StatusEnum;
+import com.debug.common.response.SuccessResponseBody;
 import com.debug.config.properties.AppProperties;
 import com.debug.oauth.entity.RoleType;
 import com.debug.oauth.entity.UserPrincipal;
@@ -22,6 +27,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -37,13 +43,12 @@ public class AuthController {
     private final AppProperties appProperties;
     private final AuthTokenProvider tokenProvider;
     private final AuthenticationManager authenticationManager;
-    private final UserRefreshTokenRepository userRefreshTokenRepository;
-
+    private final UserRefreshTokenService userRefreshTokenService;
     private final static long THREE_DAYS_MSEC = 259200000;
     private final static String REFRESH_TOKEN = "refresh_token";
 
     @PostMapping("/login")
-    public ResponseEntity<ApiBody> login(HttpServletRequest request,
+    public ResponseEntity<SuccessResponseBody> login(HttpServletRequest request,
                                          HttpServletResponse response,
                                          @RequestBody AuthRequest authRequest) {
 
@@ -57,14 +62,8 @@ public class AuthController {
                     )
             );
         } catch (BadCredentialsException e) {
-            ApiBody apiBody = ApiBody.builder()
-                    .status(HttpStatus.UNAUTHORIZED)
-                    .message(MessageEnum.UNMATCHED_ID_OR_PASSWORD)
-                    .data("")
-                    .build();
-
             // 검증에 실패하면 로그인 실패 response 반환
-            return new ResponseEntity<>(apiBody, HttpStatus.UNAUTHORIZED);
+            throw new LoginFailedException();
         }
 
         // 검증이 된다면 security 내 Authentication을 설정
@@ -86,62 +85,36 @@ public class AuthController {
                 appProperties.getAuth().getTokenSecret(),
                 new Date(now.getTime() + refreshTokenExpiry)
         );
-
-        UserRefreshToken userRefreshToken = userRefreshTokenRepository.findByUserId(userId);
-        if (userRefreshToken != null) {
-            // 리프래쉬 토큰이 db에 존재하면 업데이트
-            userRefreshToken.updateRefreshToken(refreshToken.getToken());
-        } else {
-            // db에 존재하지않으면 db에 저장
-            userRefreshToken = UserRefreshToken.builder()
-                    .userId(userId)
-                    .refreshToken(refreshToken.getToken())
-                    .build();
-        }
-        userRefreshTokenRepository.saveAndFlush(userRefreshToken);
+        userRefreshTokenService.save(refreshToken.getToken(), userId);
 
         // 쿠키에 리프래쉬 토큰 설정
         int cookieMaxAge = (int) refreshTokenExpiry / 60;
 
         CookieUtil.deleteCookie(request, response, REFRESH_TOKEN);
-        CookieUtil.addCookie(response, REFRESH_TOKEN, userRefreshToken.getRefreshToken(), cookieMaxAge);
-
-        ApiBody apiBody = ApiBody.builder()
-                .status(HttpStatus.OK)
-                .message(MessageEnum.CREATE_ACCESS_TOKEN)
-                .data(Map.of("access_token", accessToken.getToken()))
-                .build();
+        CookieUtil.addCookie(response, REFRESH_TOKEN, refreshToken.getToken(), cookieMaxAge);
 
         // body에 액세스 토큰, 쿠키에 리프래쉬 토큰을 설정하고 보냄
-        return new ResponseEntity<>(apiBody, HttpStatus.OK);
+        return SuccessResponseBody.toResponseEntity(
+                StatusEnum.CREATE_TOKENS,
+                Map.of("access_token", accessToken.getToken())
+        );
     }
 
-    @GetMapping("/refresh")
-    public ResponseEntity<ApiBody> refreshToken(HttpServletRequest request,
+    @PostMapping("/refresh")
+    public ResponseEntity<SuccessResponseBody> refreshToken(HttpServletRequest request,
                                                 HttpServletResponse response) {
         String accessToken = HeaderUtil.getAccessToken(request);
         AuthToken authAccessToken = tokenProvider.convertAuthToken(accessToken);
 
-        // TODO 2020.08.07 refresh 할 때 access token도 필요성이 있는지 고려해야함
-        // access token이 유효하지 않으면 401 에러 반환
+        // access token이 유효하지 않으면 400 에러 반환
         if (!authAccessToken.validate()) {
-            ApiBody apiBody = ApiBody.builder()
-                    .status(HttpStatus.UNAUTHORIZED)
-                    .message(MessageEnum.INVALID_ACCESS_TOKEN)
-                    .data("")
-                    .build();
-            return new ResponseEntity<>(apiBody, HttpStatus.UNAUTHORIZED);
+            throw new InvalidAccessTokenException();
         }
 
         Claims claims = authAccessToken.getExpiredTokenClaims();
-        // access token이 만료되지 않았으면 403 에러 반환
+        // access token이 만료되지 않았으면 400 에러 반환
         if (claims == null) {
-            ApiBody apiBody = ApiBody.builder()
-                    .status(HttpStatus.FORBIDDEN)
-                    .message(MessageEnum.NOT_EXPIRED_TOKEN_YET)
-                    .data("")
-                    .build();
-            return new ResponseEntity<>(apiBody, HttpStatus.FORBIDDEN);
+            throw new UnexpiredAccessTokenException();
         }
 
         String userId = claims.getSubject();
@@ -152,31 +125,20 @@ public class AuthController {
                 .orElse(null);
         AuthToken authRefreshToken = tokenProvider.convertAuthToken(refreshToken);
 
-        // refresh token이 유효하지 않으면 401 에러 반환
+        // refresh token이 유효하지 않으면 400 에러 반환
         if (!authRefreshToken.validate()) {
-            ApiBody apiBody = ApiBody.builder()
-                    .status(HttpStatus.UNAUTHORIZED)
-                    .message(MessageEnum.INVALID_REFRESH_TOKEN)
-                    .data("")
-                    .build();
-            return new ResponseEntity<>(apiBody, HttpStatus.UNAUTHORIZED);
+            throw new InvalidRefreshTokenException();
         }
 
-        UserRefreshToken userRefreshToken = userRefreshTokenRepository.findByUserIdAndRefreshToken(userId, refreshToken);
-        // refresh token이 db에 존재하지 않으면 401 에러 반환
-        if (userRefreshToken == null) {
-            ApiBody apiBody = ApiBody.builder()
-                    .status(HttpStatus.UNAUTHORIZED)
-                    .message(MessageEnum.INVALID_REFRESH_TOKEN)
-                    .data("")
-                    .build();
-            return new ResponseEntity<>(apiBody, HttpStatus.UNAUTHORIZED);
-        }
+        // refresh token이 db에 존재하지 않으면 404 에러 반환
+        UserRefreshToken userRefreshToken = userRefreshTokenService.findByRefreshTokenAndUserId(refreshToken, userId);
+
+        User user = userRefreshToken.getUser();
 
         Date now = new Date();
         AuthToken newAccessToken = tokenProvider.createAuthToken(
-                userId,
-                roleType.getAuthority(),
+                user.getUserId(),
+                user.getRoleType().getAuthority(),
                 new Date(now.getTime() + appProperties.getAuth().getTokenExpiry())
         );
 
@@ -198,12 +160,9 @@ public class AuthController {
             CookieUtil.addCookie(response, REFRESH_TOKEN, newAuthRefreshToken.getToken(), cookieMaxAge);
         }
 
-        ApiBody apiBody = ApiBody.builder()
-                .status(HttpStatus.OK)
-                .message(MessageEnum.CREATE_ACCESS_TOKEN)
-                .data(Map.of("access_token", newAccessToken.getToken()))
-                .build();
-
-        return new ResponseEntity<>(apiBody, HttpStatus.OK);
+        return SuccessResponseBody.toResponseEntity(
+                StatusEnum.CREATE_TOKENS,
+                Map.of("access_token", newAccessToken.getToken())
+        );
     }
 }

@@ -1,6 +1,7 @@
 package com.debug.config.security;
 
 import com.debug.api.repository.user.UserRefreshTokenRepository;
+import com.debug.api.service.UserRefreshTokenService;
 import com.debug.config.properties.AppProperties;
 import com.debug.config.properties.CorsProperties;
 import com.debug.oauth.entity.RoleType;
@@ -44,6 +45,7 @@ public class SecurityConfig {
     private final CustomOAuth2UserService oAuth2UserService;
     private final TokenAccessDeniedHandler tokenAccessDeniedHandler;
     private final UserRefreshTokenRepository userRefreshTokenRepository;
+    private final UserRefreshTokenService userRefreshTokenService;
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
@@ -71,7 +73,7 @@ public class SecurityConfig {
         return new OAuth2AuthenticationSuccessHandler(
                 tokenProvider,
                 appProperties,
-                userRefreshTokenRepository,
+                userRefreshTokenService,
                 oAuth2AuthorizationRequestBasedOnCookieRepository()
         );
     }
@@ -108,7 +110,7 @@ public class SecurityConfig {
                     .formLogin().disable()
                     .httpBasic().disable()
                     .exceptionHandling()
-                    .authenticationEntryPoint(new RestAuthenticationEntryPoint())
+                    .authenticationEntryPoint(new RestAuthenticationEntryPoint(tokenProvider))
                     .accessDeniedHandler(tokenAccessDeniedHandler)
                 .and()
                     // TODO 2022.08.01 uri 마다 권한 설정 해줘야함 - 현수

@@ -86,12 +86,15 @@ public class AuthToken {
         // jwt 토큰이 만료 된 경우
         } catch (ExpiredJwtException e) {
             log.info("Expired JWT token.");
+            return e.getClaims();
         // 지원되지 않는 jwt 토큰일 경우
         } catch (UnsupportedJwtException e) {
             log.info("Unsupported JWT token");
         // 잘못된 jwt 토큰일 경우
         } catch (IllegalArgumentException e) {
             log.info("JWT token compact of handler and invalid.");
+        } catch (io.jsonwebtoken.security.SignatureException e) {
+            log.info("JWT signature does not match locally computed signature : {}", token);
         }
         return null;
     }

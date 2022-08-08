@@ -1,9 +1,14 @@
 package com.debug.api.service;
 
+import com.debug.api.dto.response.UserResponse;
 import com.debug.api.entity.user.User;
+import com.debug.api.exception.UserNotFoundException;
 import com.debug.api.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 @RequiredArgsConstructor
@@ -11,7 +16,12 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public User getUser(String userId) {
-        return userRepository.findByUserId(userId);
+    @Transactional(readOnly = true)
+    public UserResponse getByUserId(String userId) {
+        User user = userRepository.findByUserId(userId).orElseThrow(
+                UserNotFoundException::new
+        );
+
+        return new UserResponse(user);
     }
 }

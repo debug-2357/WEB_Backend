@@ -1,7 +1,6 @@
 package com.debug.oauth.handler;
 
-import com.debug.api.entity.user.UserRefreshToken;
-import com.debug.api.repository.user.UserRefreshTokenRepository;
+import com.debug.api.service.UserRefreshTokenService;
 import com.debug.config.properties.AppProperties;
 import com.debug.oauth.entity.ProviderType;
 import com.debug.oauth.entity.RoleType;
@@ -40,12 +39,12 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
     private final AuthTokenProvider tokenProvider;
     private final AppProperties appProperties;
-    private final UserRefreshTokenRepository userRefreshTokenRepository;
+    private final UserRefreshTokenService userRefreshTokenService;
     private final OAuth2AuthorizationRequestBasedOnCookieRepository authorizationRequestRepository;
 
     // 성공할 경우 메소드
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
+    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException {
         // determineTargetUrl 메소드를 이용해 클라이언트 uri를 구성
         String targetUrl = determineTargetUrl(request, response, authentication);
 
@@ -102,16 +101,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
                 new Date(now.getTime() + refreshTokenExpiry)
         );
 
-        UserRefreshToken userRefreshToken = userRefreshTokenRepository.findByUserId(userInfo.getId());
-        if (userRefreshToken != null) {
-            userRefreshToken.updateRefreshToken(refreshToken.getToken());
-        } else {
-            userRefreshToken = UserRefreshToken.builder()
-                    .userId(userInfo.getId())
-                    .refreshToken(refreshToken.getToken())
-                    .build();
-            userRefreshTokenRepository.saveAndFlush(userRefreshToken);
-        }
+        userRefreshTokenService.save(refreshToken.getToken(), userInfo.getId());
 
         int cookieMaxAge = (int) refreshTokenExpiry / 60;
 
