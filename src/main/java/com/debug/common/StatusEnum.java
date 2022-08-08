@@ -15,12 +15,16 @@ public enum StatusEnum {
     CREATE_TOKENS(CREATED, "access token과 refresh token을 생성 했습니다."),
 
     // 400
-    NOT_EXPIRED_TOKEN_YET(BAD_REQUEST, "토큰이 아직 만료되지 않았습니다."),
-    INVALID_ACCESS_TOKEN(UNAUTHORIZED, "잘못된 access token입니다."),
-    INVALID_REFRESH_TOKEN(UNAUTHORIZED, "잘못된 refresh token입니다."),
+    NOT_EXPIRED_ACCESS_TOKEN_YET(BAD_REQUEST, "access token이 아직 만료되지 않았습니다."),
 
     // 401
     UNMATCHED_ID_OR_PASSWORD(UNAUTHORIZED, "아이디 또는 비밀번호가 일치하지 않습니다."),
+    EXPIRED_ACCESS_TOKEN(UNAUTHORIZED, "access token이 만료되었습니다."),
+    INVALID_ACCESS_TOKEN(UNAUTHORIZED, "잘못된 access token입니다."),
+    INVALID_REFRESH_TOKEN(UNAUTHORIZED, "잘못된 refresh token입니다."),
+
+    // 403
+    NO_PERMISSION(FORBIDDEN, "요청한 사용자는 권한이 없습니다."),
 
     // 404,
     REFRESH_TOKEN_NOT_FOUND(NOT_FOUND, "refresh token가 존재하지 않습니다."),
