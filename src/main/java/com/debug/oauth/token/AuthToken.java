@@ -1,5 +1,6 @@
 package com.debug.oauth.token;
 
+import com.google.gson.JsonSyntaxException;
 import io.jsonwebtoken.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -95,6 +96,8 @@ public class AuthToken {
             log.info("JWT token compact of handler and invalid.");
         } catch (io.jsonwebtoken.security.SignatureException e) {
             log.info("JWT signature does not match locally computed signature : {}", token);
+        } catch (JsonSyntaxException e) {
+            log.info("Gson attempts to read (or write) a malformed JSON element.");
         }
         return null;
     }
