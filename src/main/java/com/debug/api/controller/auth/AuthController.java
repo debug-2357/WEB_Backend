@@ -75,7 +75,7 @@ public class AuthController {
         AuthToken accessToken = tokenProvider.createAuthToken(
                 userId,
                 ((UserPrincipal) authentication.getPrincipal()).getRoleType().getAuthority(),
-                new Date(now.getTime() + 1)
+                new Date(now.getTime() + appProperties.getAuth().getTokenExpiry())
         );
 
         // 리프래쉬 토큰 설정
