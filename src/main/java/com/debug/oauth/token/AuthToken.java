@@ -114,7 +114,6 @@ public class AuthToken {
                     .parseClaimsJws(token)
                     .getBody();
         } catch (ExpiredJwtException e) {
-            log.info("Expired JWT token/");
             return e.getClaims();
         }
         return null;
