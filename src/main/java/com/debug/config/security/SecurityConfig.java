@@ -4,7 +4,6 @@ import com.debug.api.repository.user.UserRefreshTokenRepository;
 import com.debug.api.service.UserRefreshTokenService;
 import com.debug.config.properties.AppProperties;
 import com.debug.config.properties.CorsProperties;
-import com.debug.oauth.entity.RoleType;
 import com.debug.oauth.exception.RestAuthenticationEntryPoint;
 import com.debug.oauth.filter.TokenAuthenticationFilter;
 import com.debug.oauth.handler.OAuth2AuthenticationFailureHandler;
@@ -118,7 +117,7 @@ public class SecurityConfig {
                     .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                     .antMatchers("/", "/oauth2/**", "/api/auth/**").permitAll()
 //                    .antMatchers("/api/**").hasAnyAuthority(RoleType.UNCONFIRMED.getCode())
-                    .antMatchers("/api/**/admin/**").hasAnyAuthority(RoleType.ADMIN.getAuthority())
+//                    .antMatchers("/api/**/admin/**").hasAnyAuthority(RoleType.ADMIN.getAuthority())
                     .anyRequest().authenticated()
                 .and()
                     .oauth2Login()

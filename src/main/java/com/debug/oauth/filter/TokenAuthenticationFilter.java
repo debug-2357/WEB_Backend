@@ -1,11 +1,8 @@
 package com.debug.oauth.filter;
 
-import com.debug.api.exception.ExpiredAccessTokenException;
-import com.debug.common.StatusEnum;
 import com.debug.oauth.token.AuthToken;
 import com.debug.oauth.token.AuthTokenProvider;
 import com.debug.util.HeaderUtil;
-import com.nimbusds.jose.shaded.json.JSONObject;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
@@ -17,7 +14,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 @Slf4j
 @RequiredArgsConstructor
