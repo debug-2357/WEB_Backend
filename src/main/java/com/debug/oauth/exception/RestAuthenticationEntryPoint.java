@@ -25,15 +25,16 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
         String tokenString = HeaderUtil.getAccessToken(request);
         AuthToken token = authTokenProvider.convertAuthToken(tokenString);
 
-        authException.printStackTrace();
         log.info("Responding with unauthorized error. Message := {}", authException.getMessage());
 
-        // 토큰이 잘못 되어있다면
-        if (!token.validate()) {
+        // 토큰이 만료되었으면
+        try {
+            if (token.getExpiredTokenClaims() != null) {
+                ResponseUtil.setResponse(response, StatusEnum.EXPIRED_ACCESS_TOKEN);
+            }
+        // 그외 예외인 경우 jwt 토큰이 잘못됨
+        } catch (Exception e) {
             ResponseUtil.setResponse(response, StatusEnum.INVALID_ACCESS_TOKEN);
-        // 토큰이 만료됬다면
-        } else if (token.getExpiredTokenClaims() != null) {
-            ResponseUtil.setResponse(response, StatusEnum.EXPIRED_ACCESS_TOKEN);
         }
     }
 }
