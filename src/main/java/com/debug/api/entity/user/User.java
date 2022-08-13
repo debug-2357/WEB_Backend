@@ -22,6 +22,9 @@ public class User extends BaseTimeEntity {
     @Column(name = "user_id", length = 64, unique = true, nullable = false)
     private String userId;
 
+    @Column(name = "oauth2_user_id", length = 64, unique = true, nullable = false)
+    private String OAuth2UserId;
+
     @Column(name = "username", length = 100, nullable = false)
     private String username;
 
@@ -46,9 +49,9 @@ public class User extends BaseTimeEntity {
     private RoleType roleType;
 
     @Builder
-    public User(Long id, String userId, String username, String password, String email, String emailVerifiedYn, String profileImageUrl, ProviderType providerType, RoleType roleType) {
-        this.id = id;
+    public User(String userId, String OAuth2UserId, String username, String password, String email, String emailVerifiedYn, String profileImageUrl, ProviderType providerType, RoleType roleType) {
         this.userId = userId;
+        this.OAuth2UserId = OAuth2UserId;
         this.username = username;
         this.password = password;
         this.email = email;
