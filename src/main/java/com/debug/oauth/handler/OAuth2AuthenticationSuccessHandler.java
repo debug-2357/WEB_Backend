@@ -84,12 +84,12 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         OAuth2UserInfo userInfo = OAuth2UserInfoFactory.getOAuth2UserInfo(providerType, user.getAttributes());
         Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
 
-        RoleType roleType = hasAuthority(authorities, RoleType.ADMIN.getAuthority()) ? RoleType.ADMIN : RoleType.UNCONFIRMED;
+        String authority = getAuthority(authorities);
 
         Date now = new Date();
         AuthToken accessToken = tokenProvider.createAuthToken(
                 userInfo.getId(),
-                roleType.getAuthority(),
+                authority,
                 new Date(now.getTime() + appProperties.getAuth().getTokenExpiry())
         );
 
@@ -134,6 +134,18 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         }
 
         return false;
+    }
+
+    private String getAuthority(Collection<? extends GrantedAuthority> authorities) {
+        if (authorities == null) {
+            return null;
+        }
+
+        for (GrantedAuthority grantedAuthority : authorities) {
+            return grantedAuthority.getAuthority();
+        }
+
+        return null;
     }
 
     /**
