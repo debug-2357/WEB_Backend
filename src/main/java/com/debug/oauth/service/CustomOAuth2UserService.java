@@ -50,7 +50,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         ProviderType providerType = ProviderType.valueOf(userRequest.getClientRegistration().getRegistrationId().toUpperCase());
 
         OAuth2UserInfo userInfo = OAuth2UserInfoFactory.getOAuth2UserInfo(providerType, user.getAttributes());
-        User savedUser = userRepository.findByUserId(userInfo.getId()).orElse(null);
+        User savedUser = userRepository.findByOAuth2UserId(userInfo.getId()).orElse(null);
 
         // 저장된 유저가 있으면
         if (savedUser != null) {
@@ -77,13 +77,14 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
     private User createUser(OAuth2UserInfo userInfo, ProviderType providerType) {
         User user = User.builder()
                 .userId(userInfo.getId())
+                .OAuth2UserId(userInfo.getId())
                 .username(userInfo.getName())
                 .password(new BCryptPasswordEncoder().encode("NO_PASS"))
                 .email(Optional.ofNullable(userInfo.getEmail()).orElse("NO_EMAIL"))
                 .emailVerifiedYn("Y")
                 .profileImageUrl(Optional.ofNullable(userInfo.getImageUrl()).orElse(""))
                 .providerType(providerType)
-                .roleType(RoleType.UNCONFIRMED)
+                .roleType(RoleType.GUEST)
                 .build();
 
         return userRepository.saveAndFlush(user);
