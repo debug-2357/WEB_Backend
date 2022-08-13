@@ -40,7 +40,7 @@ public class User extends BaseTimeEntity {
     @Column(name = "profile_image_url", length = 512, nullable = false)
     private String profileImageUrl;
 
-    @Column(name = "provider_type", length = 20, nullable = false)
+    @Column(name = "provider_type", length = 20)
     @Enumerated(EnumType.STRING)
     private ProviderType providerType;
 
@@ -69,5 +69,10 @@ public class User extends BaseTimeEntity {
         if (profileImageUrl != null && !getProfileImageUrl().equals(profileImageUrl)) {
             this.profileImageUrl = profileImageUrl;
         }
+    }
+
+    public void updateUserIdAndPassword(String userId, String password) {
+        this.userId = userId;
+        this.password = password;
     }
 }
