@@ -44,4 +44,14 @@ public class GlobalExceptionHandler {
         return FailureResponseBody.toResponseEntity(e.getStatusEnum());
     }
 
+    @ExceptionHandler(InvalidPasswordException.class)
+    public ResponseEntity<FailureResponseBody> handleInvalidPasswordException(InvalidPasswordException e) {
+        return FailureResponseBody.toResponseEntity(e.getStatusEnum());
+    }
+
+    @ExceptionHandler(UserIdAlreadyInUseException.class)
+    public ResponseEntity<FailureResponseBody> handleUserIdAlreadyInUseException(UserIdAlreadyInUseException e) {
+        return FailureResponseBody.toResponseEntity(e.getStatusEnum());
+    }
+
 }
