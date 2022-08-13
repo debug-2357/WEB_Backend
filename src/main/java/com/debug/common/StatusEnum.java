@@ -13,9 +13,12 @@ public enum StatusEnum {
 
     // 201
     CREATE_TOKENS(CREATED, "access token과 refresh token을 생성 했습니다."),
+    CREATE_USER(CREATED, "user를 생성했습니다."),
 
     // 400
     NOT_EXPIRED_ACCESS_TOKEN_YET(BAD_REQUEST, "access token이 아직 만료되지 않았습니다."),
+    INVALID_PASSWORD(BAD_REQUEST, "password1과 password2가 틀립니다."),
+    USERID_ALREADY_IN_USER(BAD_REQUEST, "해당 유저가 이미 존재합니다"),
 
     // 401
     UNMATCHED_ID_OR_PASSWORD(UNAUTHORIZED, "아이디 또는 비밀번호가 일치하지 않습니다."),
