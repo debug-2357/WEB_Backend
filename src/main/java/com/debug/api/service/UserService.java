@@ -44,9 +44,23 @@ public class UserService {
                 .emailVerifiedYn("Y")
                 .profileImageUrl("")
                 .providerType(null)
-                .roleType(RoleType.GUEST)
+                .roleType(RoleType.UNCONFIRMED)
                 .build();
 
         userRepository.save(user);
+    }
+
+    @Transactional
+    public void changeUnconfirmed(String userId, RegisterRequest registerRequest) {
+        User user = userRepository.findByUserId(userId).orElseThrow(
+                UserNotFoundException::new
+        );
+
+        user.changeUnconfirmed(
+                registerRequest.getUserId(),
+                registerRequest.getUsername(),
+                registerRequest.getPassword1(),
+                registerRequest.getEmail()
+        );
     }
 }

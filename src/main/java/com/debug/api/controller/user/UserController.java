@@ -41,6 +41,21 @@ public class UserController {
         return SuccessResponseBody.toResponseEntity(StatusEnum.CREATE_USER, null);
     }
 
+    @PatchMapping
+    public ResponseEntity<SuccessResponseBody> changeUnconfirmed(@AuthenticationPrincipal UserDetails userDetails,
+                                                                 @RequestBody RegisterRequest registerRequest) {
+        if (!comparePassword(registerRequest)) {
+            throw new InvalidPasswordException();
+        }
+
+        if (userService.existsByUserId(registerRequest.getUserId())) {
+            throw new UserIdAlreadyInUseException();
+        }
+
+        userService.changeUnconfirmed(userDetails.getUsername(), registerRequest);
+        return SuccessResponseBody.toResponseEntity(StatusEnum.CREATE_USER, null);
+    }
+
     private boolean comparePassword(RegisterRequest registerRequest) {
         return registerRequest.getPassword1().equals(registerRequest.getPassword2());
     }
