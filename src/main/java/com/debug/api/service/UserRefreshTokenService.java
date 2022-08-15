@@ -30,8 +30,10 @@ public class UserRefreshTokenService {
 
     @Transactional(readOnly = true)
     public UserRefreshToken findByRefreshTokenAndUserId(String refreshToken, String userId) {
-        User user = userRepository.findByUserId(userId).orElseThrow(
-                UserNotFoundException::new
+        User user = userRepository.findByUserId(userId).orElseGet(
+                () -> userRepository.findByOAuth2UserId(userId).orElseThrow(
+                        UserNotFoundException::new
+                )
         );
 
         return userRefreshTokenRepository.findByRefreshTokenAndUser(refreshToken, user).orElseThrow(
@@ -41,8 +43,10 @@ public class UserRefreshTokenService {
 
     @Transactional
     public void save(String refreshToken, String userId) {
-        User user = userRepository.findByUserId(userId).orElseThrow(
-                UserNotFoundException::new
+        User user = userRepository.findByUserId(userId).orElseGet(
+                () -> userRepository.findByOAuth2UserId(userId).orElseThrow(
+                        UserNotFoundException::new
+                )
         );
         UserRefreshToken userRefreshToken = userRefreshTokenRepository.findByUser(user).orElse(null);
 
