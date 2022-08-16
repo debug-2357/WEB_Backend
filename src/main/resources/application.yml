@@ -5,7 +5,7 @@ spring:
       registration:
         google:
           clientId: ${google-client-id}
-          clientSecret: ${google=client-secret}
+          clientSecret: ${google-client-secret}
           scope:
             - email
             - profile
@@ -33,13 +33,13 @@ spring:
   # 데이터 소스 설정
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:~/Desktop/h2/debug_web_test
+    url: jdbc:h2:tcp://localhost:9092/~/Desktop/h2/debug_web_test;NON_KEYWORDS=USER
     username: sa
-    password: root
+    password:
     hikari:
       pool-name: jpa-hikari-pool
       maximum-pool-size: 5
-      jdbc-url: jdbc:h2:~/Desktop/h2/debug_web_test
+      jdbc-url: jdbc:h2:tcp://localhost:9092/~/Desktop/h2/debug_web_test;NON_KEYWORDS=USER
       username: sa
       password:
       driver-class-name: ${spring.datasource.driver-class-name}
@@ -49,7 +49,7 @@ spring:
   jpa:
     generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
     show-sql: true
     properties:
       hibernate:
