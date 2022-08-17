@@ -27,7 +27,7 @@ public enum StatusEnum {
     INVALID_REFRESH_TOKEN(UNAUTHORIZED, "잘못된 refresh token입니다."),
 
     // 403
-    NEED_SIGN_IN(FORBIDDEN, "요청한 사용자는 회원가입을 마쳐야합니다."),
+    NEED_SIGN_UP(FORBIDDEN, "요청한 사용자는 회원가입을 마쳐야합니다."),
     NO_PERMISSION(FORBIDDEN, "요청한 사용자는 권한이 없습니다."),
 
     // 404,
