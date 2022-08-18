@@ -11,7 +11,7 @@ public class ResponseUtil {
 
     public static void setResponse(HttpServletResponse response, StatusEnum statusEnum) throws IOException {
         response.setContentType("application/json;charset=UTF-8");
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.setStatus(statusEnum.getHttpStatus().value());
 
         FailureResponseBody body = FailureResponseBody.builder()
                 .status(statusEnum.getHttpStatus().value())
