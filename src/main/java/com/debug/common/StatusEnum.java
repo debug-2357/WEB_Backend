@@ -22,6 +22,7 @@ public enum StatusEnum {
 
     // 401
     UNMATCHED_ID_OR_PASSWORD(UNAUTHORIZED, "아이디 또는 비밀번호가 일치하지 않습니다."),
+    ACCESS_TOKEN_IS_NULL(UNAUTHORIZED, "access_token이 존재하지 않습니다."),
     EXPIRED_ACCESS_TOKEN(UNAUTHORIZED, "access token이 만료되었습니다."),
     INVALID_ACCESS_TOKEN(UNAUTHORIZED, "잘못된 access token입니다."),
     INVALID_REFRESH_TOKEN(UNAUTHORIZED, "잘못된 refresh token입니다."),
