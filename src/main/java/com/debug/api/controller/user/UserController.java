@@ -53,7 +53,7 @@ public class UserController {
         }
 
         userService.changeUnconfirmed(userDetails.getUsername(), registerRequest);
-        return SuccessResponseBody.toResponseEntity(StatusEnum.CREATE_USER, null);
+        return SuccessResponseBody.toResponseEntity(StatusEnum.SUCCESS_SIGN_UP, null);
     }
 
     private boolean comparePassword(RegisterRequest registerRequest) {

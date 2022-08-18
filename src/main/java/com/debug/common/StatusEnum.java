@@ -10,6 +10,7 @@ public enum StatusEnum {
 
     // 200
     GET_USER_INFO(OK, "user 정보를 반환했습니다."),
+    SUCCESS_SIGN_UP(OK, "회원가입을 성공적으로 마쳤습니다."),
 
     // 201
     CREATE_TOKENS(CREATED, "access token과 refresh token을 생성 했습니다."),

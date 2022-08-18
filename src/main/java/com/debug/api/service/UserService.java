@@ -59,7 +59,7 @@ public class UserService {
         user.changeUnconfirmed(
                 registerRequest.getUserId(),
                 registerRequest.getUsername(),
-                registerRequest.getPassword1(),
+                passwordEncoder.encode(registerRequest.getPassword1()),
                 registerRequest.getEmail()
         );
     }
