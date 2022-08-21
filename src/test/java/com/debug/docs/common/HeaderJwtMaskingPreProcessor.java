@@ -34,7 +34,7 @@ public class HeaderJwtMaskingPreProcessor implements OperationPreprocessor {
 
         return new OperationRequestFactory().create(request.getUri(),
                 request.getMethod(), request.getContent(), newHeader,
-                request.getParameters(), request.getParts());
+                request.getParameters(), request.getParts(), request.getCookies());
     }
 
     @Override
