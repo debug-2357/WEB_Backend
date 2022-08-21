@@ -10,4 +10,12 @@ public class CustomPreprocessors {
     public static OperationPreprocessor maskJwtFromHeader(String description) {
         return new HeaderJwtMaskingPreProcessor(description);
     }
+
+    public static OperationPreprocessor maskJwtFromCookie() {
+        return new CookieJwtMaskingPreProcessor();
+    }
+
+    public static OperationPreprocessor maskJwtFromCookie(String description) {
+        return new CookieJwtMaskingPreProcessor(description);
+    }
 }
