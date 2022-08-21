@@ -4,10 +4,10 @@ import org.springframework.restdocs.operation.preprocess.OperationPreprocessor;
 
 public class CustomPreprocessors {
     public static OperationPreprocessor maskJwt() {
-        return new JwtMaskingPreProcessor();
+        return new HeaderJwtMaskingPreProcessor();
     }
 
     public static OperationPreprocessor maskJwt(String description) {
-        return new JwtMaskingPreProcessor(description);
+        return new HeaderJwtMaskingPreProcessor(description);
     }
 }

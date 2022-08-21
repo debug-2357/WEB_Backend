@@ -6,16 +6,16 @@ import org.springframework.restdocs.operation.OperationRequestFactory;
 import org.springframework.restdocs.operation.OperationResponse;
 import org.springframework.restdocs.operation.preprocess.OperationPreprocessor;
 
-public class JwtMaskingPreProcessor implements OperationPreprocessor {
+public class HeaderJwtMaskingPreProcessor implements OperationPreprocessor {
 
     private String headerValue = "Bearer ";
     private final static String HEADER_NAME = "Authorization";
 
-    public JwtMaskingPreProcessor() {
+    public HeaderJwtMaskingPreProcessor() {
         this.headerValue += "XXX";
     }
 
-    public JwtMaskingPreProcessor(String description) {
+    public HeaderJwtMaskingPreProcessor(String description) {
         this.headerValue += description;
     }
 
