@@ -27,7 +27,7 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import java.util.Date;
 
-import static com.debug.docs.common.CustomPreprocessors.maskJwt;
+import static com.debug.docs.common.CustomPreprocessors.maskJwtFromHeader;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
@@ -93,7 +93,7 @@ public class AccessExceptionHandleTests {
         // then
         perform.andExpect(status().isUnauthorized())
                 .andDo(document("access-exception-handle/unauthorized-when-access-token-is-expired",
-                                preprocessRequest(prettyPrint(), maskJwt(EXPIRED_ACCESS_TOKEN)),
+                                preprocessRequest(prettyPrint(), maskJwtFromHeader(EXPIRED_ACCESS_TOKEN)),
                                 preprocessResponse(prettyPrint())
                         )
                 );
@@ -117,7 +117,7 @@ public class AccessExceptionHandleTests {
         // then
         perform.andExpect(status().isUnauthorized())
                 .andDo(document("access-exception-handle/unauthorized-when-access-token-is-invalid",
-                                preprocessRequest(prettyPrint(), maskJwt(INVALID_ACCESS_TOKEN)),
+                                preprocessRequest(prettyPrint(), maskJwtFromHeader(INVALID_ACCESS_TOKEN)),
                                 preprocessResponse(prettyPrint())
                         )
                 );
@@ -141,7 +141,7 @@ public class AccessExceptionHandleTests {
         // then
         perform.andExpect(status().isForbidden())
                 .andDo(document("access-exception-handle/forbidden-when-role-guest-accesses-disallowed-url",
-                                preprocessRequest(prettyPrint(), maskJwt(NORMAL_ACCESS_TOKEN)),
+                                preprocessRequest(prettyPrint(), maskJwtFromHeader(NORMAL_ACCESS_TOKEN)),
                                 preprocessResponse(prettyPrint())
                         )
                 );
@@ -165,7 +165,7 @@ public class AccessExceptionHandleTests {
         // then
         perform.andExpect(status().isForbidden())
                 .andDo(document("access-exception-handle/forbidden-when-a-non-role-guest-authenticator-accesses-a-disallowed-url",
-                                preprocessRequest(prettyPrint(), maskJwt(NORMAL_ACCESS_TOKEN)),
+                                preprocessRequest(prettyPrint(), maskJwtFromHeader(NORMAL_ACCESS_TOKEN)),
                                 preprocessResponse(prettyPrint())
                         )
                 );
