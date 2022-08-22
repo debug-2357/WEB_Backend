@@ -13,22 +13,22 @@
 
 ```gradle
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.0'
-    implementation 'org.springframework.boot:spring-boot-starter-security:2.7.0'
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.2'
+    implementation 'org.springframework.boot:spring-boot-starter-security:2.7.2'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.2'
     implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
     implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
     implementation 'io.jsonwebtoken:jjwt-gson:0.11.5'
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3'
     compileOnly 'org.projectlombok:lombok:1.18.24'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.7.0'
-    runtimeOnly 'com.h2database:h2:2.1.212'
-    runtimeOnly 'mysql:mysql-connector-java:8.0.29'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.7.2'
+    runtimeOnly 'com.h2database:h2:2.1.214'
+    runtimeOnly 'mysql:mysql-connector-java:8.0.30'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.0'
-    testImplementation 'org.springframework.security:spring-security-test:5.7.1'
-    asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor:2.0.6.RELEASE'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.2'
+    testImplementation 'org.springframework.security:spring-security-test:5.7.2'
     testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc:2.0.6.RELEASE'
+    asciidoctorExtensions 'org.springframework.restdocs:spring-restdocs-asciidoctor:2.0.6.RELEASE'
 ```
 
 - 버전 관리 : git, [github](https://github.com/debug-2357/WEB_Backend)
@@ -39,3 +39,9 @@
 ## DB ERD
 
 ![](debug_web.png)
+
+## API docs
+
+Debug Web Api의 문서는 Spring Rest Docs 라이브러리를 통해 자동화합니다.
+
+문서를 보려면 [이 링크](https://github.com/debug-2357/WEB_Backend/blob/main/src/docs/asciidoc/index.adoc) 참조하세요.
