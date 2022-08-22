@@ -30,7 +30,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
         AuthToken token = authTokenProvider.convertAuthToken(tokenString);
 
         // 만약 토큰이 유효하고 만료되지 않았다면
-        if (token.validate() && token.getExpiredTokenClaims() == null) {
+        if (token != null && token.validate() && token.getExpiredTokenClaims() == null) {
             Authentication authentication = authTokenProvider.getAuthentication(token);
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }

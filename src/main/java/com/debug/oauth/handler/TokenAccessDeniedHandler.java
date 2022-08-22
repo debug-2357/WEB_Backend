@@ -35,7 +35,7 @@ public class TokenAccessDeniedHandler implements AccessDeniedHandler {
         Authentication authentication = authTokenProvider.getAuthentication(authToken);
 
         if (authentication.getAuthorities().contains(new SimpleGrantedAuthority(RoleType.GUEST.getAuthority()))) {
-            ResponseUtil.setResponse(response, StatusEnum.NEED_SIGN_IN);
+            ResponseUtil.setResponse(response, StatusEnum.NEED_SIGN_UP);
         } else {
             ResponseUtil.setResponse(response, StatusEnum.NO_PERMISSION);
         }

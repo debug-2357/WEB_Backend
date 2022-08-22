@@ -4,6 +4,7 @@ import com.debug.api.repository.user.UserRefreshTokenRepository;
 import com.debug.api.service.UserRefreshTokenService;
 import com.debug.config.properties.AppProperties;
 import com.debug.config.properties.CorsProperties;
+import com.debug.oauth.entity.RoleType;
 import com.debug.oauth.exception.RestAuthenticationEntryPoint;
 import com.debug.oauth.filter.TokenAuthenticationFilter;
 import com.debug.oauth.handler.OAuth2AuthenticationFailureHandler;
@@ -16,6 +17,7 @@ import com.debug.oauth.token.AuthTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -39,7 +41,7 @@ public class SecurityConfig {
 
     private final CorsProperties corsProperties;
     private final AppProperties appProperties;
-    private final AuthTokenProvider tokenProvider;
+    private final AuthTokenProvider authTokenProvider;
     private final CustomUserDetailsService userDetailsService;
     private final CustomOAuth2UserService oAuth2UserService;
     private final TokenAccessDeniedHandler tokenAccessDeniedHandler;
@@ -59,7 +61,7 @@ public class SecurityConfig {
 
     @Bean
     public TokenAuthenticationFilter tokenAuthenticationFilter() {
-        return new TokenAuthenticationFilter(tokenProvider);
+        return new TokenAuthenticationFilter(authTokenProvider);
     }
 
     @Bean
@@ -70,7 +72,7 @@ public class SecurityConfig {
     @Bean
     public OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler() {
         return new OAuth2AuthenticationSuccessHandler(
-                tokenProvider,
+                authTokenProvider,
                 appProperties,
                 userRefreshTokenService,
                 oAuth2AuthorizationRequestBasedOnCookieRepository()
@@ -109,16 +111,24 @@ public class SecurityConfig {
                     .formLogin().disable()
                     .httpBasic().disable()
                     .exceptionHandling()
-                    .authenticationEntryPoint(new RestAuthenticationEntryPoint(tokenProvider))
+                    .authenticationEntryPoint(new RestAuthenticationEntryPoint(authTokenProvider))
                     .accessDeniedHandler(tokenAccessDeniedHandler)
                 .and()
                     // TODO 2022.08.01 uri 마다 권한 설정 해줘야함 - 현수
                     .authorizeRequests()
                     .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
-                    .antMatchers("/", "/oauth2/**", "/api/auth/**").permitAll()
+//                    .antMatchers("/", "/oauth2/**", "/api/auth/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/users")
+                    .hasAnyAuthority(
+                            RoleType.ADMIN.getAuthority(),
+                            RoleType.UNCONFIRMED.getAuthority(),
+                            RoleType.CONFIRM.getAuthority()
+                            )
+                .antMatchers(HttpMethod.PATCH, "/api/users").hasAuthority(RoleType.GUEST.getAuthority())
+                .anyRequest().permitAll()
 //                    .antMatchers("/api/**").hasAnyAuthority(RoleType.UNCONFIRMED.getCode())
 //                    .antMatchers("/api/**/admin/**").hasAnyAuthority(RoleType.ADMIN.getAuthority())
-                    .anyRequest().authenticated()
+//                    .anyRequest().authenticated()
                 .and()
                     .oauth2Login()
                     .authorizationEndpoint()
@@ -131,6 +141,7 @@ public class SecurityConfig {
                     .userInfoEndpoint()
                     .userService(oAuth2UserService)
                 .and()
+                    // TODO 2020.08.18 oauth2 성공 또는 실패시 response로 토큰 반환
                     .successHandler(oAuth2AuthenticationSuccessHandler())
                     .failureHandler(oAuth2AuthenticationFailureHandler());
 

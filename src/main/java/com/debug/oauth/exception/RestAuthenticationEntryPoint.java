@@ -23,6 +23,12 @@ public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
         String tokenString = HeaderUtil.getAccessToken(request);
+
+        if (tokenString == null) {
+            ResponseUtil.setResponse(response, StatusEnum.ACCESS_TOKEN_IS_NULL);
+            return;
+        }
+
         AuthToken token = authTokenProvider.convertAuthToken(tokenString);
 
         log.info("Responding with unauthorized error. Message := {}", authException.getMessage());
