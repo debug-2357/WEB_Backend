@@ -21,10 +21,18 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public ResponseEntity<SuccessResponseBody> getUser(@AuthenticationPrincipal UserDetails userDetails) {
+    public ResponseEntity<SuccessResponseBody> getMyUser(@AuthenticationPrincipal UserDetails userDetails) {
 
         UserResponse userResponse = userService.getByUserId(userDetails.getUsername());
         return SuccessResponseBody.toResponseEntity(StatusEnum.GET_USER_INFO, userResponse);
+    }
+
+    @GetMapping("/exists/{userId}")
+    public ResponseEntity<SuccessResponseBody> findByUserId(@PathVariable String userId) {
+
+        boolean isExistUser = userService.existsByUserId(userId);
+        StatusEnum status = (isExistUser) ? StatusEnum.USER_EXISTS : StatusEnum.USER_DOSE_NOT_EXIST;
+        return SuccessResponseBody.toResponseEntity(status, null);
     }
 
     @PostMapping

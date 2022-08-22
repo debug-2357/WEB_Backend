@@ -10,11 +10,15 @@ public enum StatusEnum {
 
     // 200
     GET_USER_INFO(OK, "user 정보를 반환했습니다."),
+    USER_EXISTS(OK, "해당 유저는 db에 존재합니다."),
     SUCCESS_SIGN_UP(OK, "회원가입을 성공적으로 마쳤습니다."),
 
     // 201
     CREATE_TOKENS(CREATED, "access token과 refresh token을 생성 했습니다."),
     CREATE_USER(CREATED, "user를 생성했습니다."),
+
+    // 204
+    USER_DOSE_NOT_EXIST(NO_CONTENT, "해당 유저의 id는 db에 없습니다."),
 
     // 400
     NOT_EXPIRED_ACCESS_TOKEN_YET(BAD_REQUEST, "access token이 아직 만료되지 않았습니다."),
