@@ -30,6 +30,7 @@ import java.util.Date;
 import static com.debug.docs.common.CustomPreprocessors.maskJwtFromHeader;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.patch;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -153,12 +154,13 @@ public class AccessExceptionHandleTests {
         // given
         Date now = new Date();
         AuthToken authToken = authTokenProvider.createAuthToken(
-                "test", RoleType.GUEST.getAuthority(), new Date(now.getTime() + 100000)
+                "test", RoleType.UNCONFIRMED.getAuthority(), new Date(now.getTime() + 100000)
         );
 
         // when
         ResultActions perform = this.mockMvc.perform(
-                get("/api/users")
+                // todo 2022.08.22 url을 admin으로 바꿔야함
+                patch("/api/users")
                         .header("Authorization", "Bearer " + authToken.getToken())
         );
 

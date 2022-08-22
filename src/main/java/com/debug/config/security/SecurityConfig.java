@@ -124,6 +124,7 @@ public class SecurityConfig {
                             RoleType.UNCONFIRMED.getAuthority(),
                             RoleType.CONFIRM.getAuthority()
                             )
+                .antMatchers(HttpMethod.PATCH, "/api/users").hasAuthority(RoleType.GUEST.getAuthority())
                 .anyRequest().permitAll()
 //                    .antMatchers("/api/**").hasAnyAuthority(RoleType.UNCONFIRMED.getCode())
 //                    .antMatchers("/api/**/admin/**").hasAnyAuthority(RoleType.ADMIN.getAuthority())
