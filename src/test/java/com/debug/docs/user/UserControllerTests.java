@@ -16,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
@@ -25,6 +26,8 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.*;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
+import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
+import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ActiveProfiles("development")
@@ -47,7 +50,7 @@ public class UserControllerTests {
     @Test
     @DisplayName("유저 정보 요청 성공")
     @WithMockUser
-    public void test_success_get_user() throws Exception {
+    public void success_get_my_user() throws Exception {
         // given
         UserResponse userResponse = UserResponse.builder()
                 .userId("test")
@@ -64,7 +67,7 @@ public class UserControllerTests {
         // when, then
         this.mockMvc.perform(get("/api/users").header("Authorization", "Bearer " + ACCESS_TOKEN))
                 .andExpect(status().isOk())
-                .andDo(document("user/success-get-user",
+                .andDo(document("user/success-get-my-user",
                         preprocessResponse(prettyPrint()),
                         requestHeaders(
                                 headerWithName("Authorization").description("JWT access token")
@@ -85,8 +88,48 @@ public class UserControllerTests {
     }
 
     @Test
+    @DisplayName("특정 유저의 id가 db에 존재할 경우")
+    public void user_exists() throws Exception {
+        boolean isExist = true;
+
+        when(userService.existsByUserId(anyString()))
+                .thenReturn(isExist);
+
+        ResultActions perform = this.mockMvc.perform(get("/api/users/exists/{userId}", "testUserID"));
+
+        perform.andExpect(status().isOk())
+                .andDo(document("user/user-exists",
+                        preprocessRequest(prettyPrint()),
+                        preprocessResponse(prettyPrint()),
+                        pathParameters(
+                                parameterWithName("userId").description("존재 유무를 판단하기 위한 유저 id")
+                        )
+                ));
+    }
+
+    @Test
+    @DisplayName("특정 유저의 id가 db에 존재하지 않을 경우")
+    public void user_does_not_exist() throws Exception {
+        boolean isExist = false;
+
+        when(userService.existsByUserId(anyString()))
+                .thenReturn(isExist);
+
+        ResultActions perform = this.mockMvc.perform(get("/api/users/exists/{userId}", "testUserID"));
+
+        perform.andExpect(status().isNoContent())
+                .andDo(document("user/user-does-not-exist",
+                        preprocessRequest(prettyPrint()),
+                        preprocessResponse(prettyPrint()),
+                        pathParameters(
+                                parameterWithName("userId").description("존재 유무를 판단하기 위한 유저 id")
+                        )
+                ));
+    }
+
+    @Test
     @DisplayName("회원가입 성공")
-    public void test_success_sign_up() throws Exception {
+    public void success_sign_up() throws Exception {
         // given
         RegisterRequest registerRequest = RegisterRequest
                 .builder()
@@ -117,7 +160,7 @@ public class UserControllerTests {
 
     @Test
     @DisplayName("비밀번호 불일치로 인한 회원가입 실패")
-    public void test_failure_sign_up_when_invalid_password() throws Exception {
+    public void failure_sign_up_when_invalid_password() throws Exception {
         // given
         RegisterRequest registerRequest = RegisterRequest
                 .builder()
@@ -138,7 +181,7 @@ public class UserControllerTests {
 
     @Test
     @DisplayName("중복된 userid로 인해 회원가입 실패")
-    public void test_failure_sign_up_when_user_id_already_in_use() throws Exception {
+    public void failure_sign_up_when_user_id_already_in_use() throws Exception {
         // given
         RegisterRequest registerRequest = RegisterRequest
                 .builder()
@@ -164,7 +207,7 @@ public class UserControllerTests {
     @Test
     @DisplayName("unconfirmed 변경 성공")
     @WithMockUser
-    public void test_success_change_unconfirmed() throws Exception {
+    public void success_change_unconfirmed() throws Exception {
         // given
         RegisterRequest registerRequest = RegisterRequest
                 .builder()
@@ -182,12 +225,22 @@ public class UserControllerTests {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(registerRequest)))
                 .andExpect(status().isOk())
-                .andDo(document("user/success-change-unconfirmed"));
+                .andDo(document("user/success-change-unconfirmed",
+                        preprocessRequest(prettyPrint()),
+                        preprocessResponse(prettyPrint()),
+                        requestFields(
+                                fieldWithPath("userId").description("이름"),
+                                fieldWithPath("username").description("유저 별명"),
+                                fieldWithPath("email").description("이메일"),
+                                fieldWithPath("password1").description("패스워드"),
+                                fieldWithPath("password2").description("패스워드 확인")
+                        )
+                ));
     }
 
     @Test
     @DisplayName("비밀번호 불일치로 인한 unconfirmed 변경 실패")
-    public void test_failure_change_unconfirmed_invalid_password() throws Exception {
+    public void failure_change_unconfirmed_invalid_password() throws Exception {
         // given
         RegisterRequest registerRequest = RegisterRequest
                 .builder()
@@ -205,13 +258,23 @@ public class UserControllerTests {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(registerRequest)))
                 .andExpect(status().isBadRequest())
-                .andDo(document("user/failure-change-unconfirmed-when-invalid-password", preprocessResponse(prettyPrint())));
+                .andDo(document("user/failure-change-unconfirmed-when-invalid-password",
+                        preprocessRequest(prettyPrint()),
+                        preprocessResponse(prettyPrint()),
+                        requestFields(
+                                fieldWithPath("userId").description("이름"),
+                                fieldWithPath("username").description("유저 별명"),
+                                fieldWithPath("email").description("이메일"),
+                                fieldWithPath("password1").description("패스워드"),
+                                fieldWithPath("password2").description("패스워드 확인")
+                        )
+                ));
 
     }
 
     @Test
     @DisplayName("중복된 userid로 인해 unconfirmed 변경 실패")
-    public void test_failure_change_unconfirmed_when_user_id_already_in_use() throws Exception {
+    public void failure_change_unconfirmed_when_user_id_already_in_use() throws Exception {
         // given
         RegisterRequest registerRequest = RegisterRequest
                 .builder()
@@ -233,6 +296,15 @@ public class UserControllerTests {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(registerRequest)))
                 .andExpect(status().isBadRequest())
-                .andDo(document("user/failure-change-unconfirmed-when-user-id-already-in-use", preprocessResponse(prettyPrint())));
+                .andDo(document("user/failure-change-unconfirmed-when-user-id-already-in-use",preprocessRequest(prettyPrint()),
+                        preprocessResponse(prettyPrint()),
+                        requestFields(
+                                fieldWithPath("userId").description("이름"),
+                                fieldWithPath("username").description("유저 별명"),
+                                fieldWithPath("email").description("이메일"),
+                                fieldWithPath("password1").description("패스워드"),
+                                fieldWithPath("password2").description("패스워드 확인")
+                        )
+                ));
     }
 }
