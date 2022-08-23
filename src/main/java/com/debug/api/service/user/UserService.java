@@ -1,4 +1,4 @@
-package com.debug.api.service;
+package com.debug.api.service.user;
 
 import com.debug.api.dto.request.RegisterRequest;
 import com.debug.api.dto.response.UserResponse;

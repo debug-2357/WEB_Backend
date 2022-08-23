@@ -3,7 +3,7 @@ package com.debug.docs.user;
 import com.debug.api.controller.user.UserController;
 import com.debug.api.dto.request.RegisterRequest;
 import com.debug.api.dto.response.UserResponse;
-import com.debug.api.service.UserService;
+import com.debug.api.service.user.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,7 @@
 package com.debug.config.security;
 
 import com.debug.api.repository.user.UserRefreshTokenRepository;
-import com.debug.api.service.UserRefreshTokenService;
+import com.debug.api.service.user.UserRefreshTokenService;
 import com.debug.config.properties.AppProperties;
 import com.debug.config.properties.CorsProperties;
 import com.debug.oauth.entity.RoleType;

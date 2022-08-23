@@ -1,9 +1,8 @@
 package com.debug.oauth.handler;
 
-import com.debug.api.service.UserRefreshTokenService;
+import com.debug.api.service.user.UserRefreshTokenService;
 import com.debug.config.properties.AppProperties;
 import com.debug.oauth.entity.ProviderType;
-import com.debug.oauth.entity.RoleType;
 import com.debug.oauth.info.OAuth2UserInfo;
 import com.debug.oauth.info.OAuth2UserInfoFactory;
 import com.debug.oauth.repository.OAuth2AuthorizationRequestBasedOnCookieRepository;

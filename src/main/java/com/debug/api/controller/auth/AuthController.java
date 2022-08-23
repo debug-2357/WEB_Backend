@@ -7,7 +7,7 @@ import com.debug.api.exception.InvalidAccessTokenException;
 import com.debug.api.exception.InvalidRefreshTokenException;
 import com.debug.api.exception.LoginFailedException;
 import com.debug.api.exception.UnexpiredAccessTokenException;
-import com.debug.api.service.UserRefreshTokenService;
+import com.debug.api.service.user.UserRefreshTokenService;
 import com.debug.common.StatusEnum;
 import com.debug.common.response.SuccessResponseBody;
 import com.debug.config.properties.AppProperties;
