@@ -3,6 +3,7 @@ package com.debug.util;
 import com.debug.common.StatusEnum;
 import com.debug.common.response.FailureResponseBody;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -20,7 +21,8 @@ public class ResponseUtil {
                 .message(statusEnum.getDetail())
                 .build();
 
-        String jsonBody = new ObjectMapper().writeValueAsString(body);
+        ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
+        String jsonBody = objectMapper.writeValueAsString(body);
 
         response.getWriter().print(jsonBody);
     }
