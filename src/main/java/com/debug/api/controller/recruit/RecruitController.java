@@ -1,6 +1,5 @@
 package com.debug.api.controller.recruit;
 
-import com.debug.api.dto.request.RecruitApplyRequest;
 import com.debug.api.dto.response.RecruitApplyResponse;
 import com.debug.api.dto.response.RecruitPeriodResponse;
 import com.debug.api.service.recruit.RecruitApplyService;
@@ -63,7 +62,7 @@ public class RecruitController {
     @PostMapping("/periods/{periodId}/applies")
     public ResponseEntity<SuccessResponseBody> saveRecruitApply(@AuthenticationPrincipal UserDetails userDetails,
                                                                 @PathVariable Long periodId,
-                                                                @RequestBody RecruitApplyRequest recruitApplyRequest) {
+                                                                @RequestBody Map<String, String> recruitApplyRequest) {
 
         Long recruitApplyId = recruitApplyService.save(periodId, userDetails.getUsername(), recruitApplyRequest);
         return SuccessResponseBody.toResponseEntity(
@@ -76,7 +75,7 @@ public class RecruitController {
     public ResponseEntity<SuccessResponseBody> updateRecruitApply(@AuthenticationPrincipal UserDetails userDetails,
                                                                 @PathVariable Long periodId,
                                                                 @PathVariable Long applyId,
-                                                                @RequestBody RecruitApplyRequest recruitApplyRequest) {
+                                                                @RequestBody Map<String, String> recruitApplyRequest) {
 
         Long recruitApplyId = recruitApplyService.update(periodId, applyId, userDetails.getUsername(), recruitApplyRequest);
         return SuccessResponseBody.toResponseEntity(

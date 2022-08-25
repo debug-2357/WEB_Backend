@@ -1,6 +1,5 @@
 package com.debug.api.service.recruit;
 
-import com.debug.api.dto.request.RecruitApplyRequest;
 import com.debug.api.dto.response.RecruitApplyResponse;
 import com.debug.api.entity.recruit.RecruitApply;
 import com.debug.api.entity.recruit.RecruitPeriod;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -41,7 +41,7 @@ public class RecruitApplyService {
     }
 
     @Transactional
-    public Long save(Long recruitPeriodId, String userId, RecruitApplyRequest request) {
+    public Long save(Long recruitPeriodId, String userId, Map<String, String> request) {
         RecruitPeriod recruitPeriod = recruitPeriodRepository.findById(recruitPeriodId)
                 .orElseThrow(RecruitPeriodNotFoundException::new);
 
@@ -60,7 +60,7 @@ public class RecruitApplyService {
         RecruitApply recruitApply = RecruitApply.builder()
                 .user(user)
                 .recruitPeriod(recruitPeriod)
-                .content(request.getContent())
+                .content(request)
                 .isPass(null)
                 .build();
 
@@ -68,7 +68,7 @@ public class RecruitApplyService {
     }
 
     @Transactional
-    public Long update(Long recruitPeriodId, Long recruitApplyId, String userId, RecruitApplyRequest request) {
+    public Long update(Long recruitPeriodId, Long recruitApplyId, String userId, Map<String, String> request) {
         RecruitApply recruitApply = recruitApplyRepository.findById(recruitApplyId)
                 .orElseThrow(RecruitApplyNotFoundException::new);
 
@@ -81,7 +81,7 @@ public class RecruitApplyService {
             throw new NonReceptionPeriodException();
         }
 
-        recruitApply.updateContent(request.getContent());
+        recruitApply.updateContent(request);
 
         return recruitApplyId;
     }
