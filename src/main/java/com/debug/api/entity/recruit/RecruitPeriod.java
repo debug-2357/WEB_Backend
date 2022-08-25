@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -33,6 +32,9 @@ public class RecruitPeriod extends BaseTimeEntity {
     @CollectionTable(name = "recruit_questions", joinColumns = @JoinColumn(name = "recruit_period_id"))
     @Column(columnDefinition = "MEDIUMTEXT")
     private List<String> questions;
+
+    @OneToMany(targetEntity = RecruitApply.class, cascade = CascadeType.REMOVE)
+    List<RecruitApply> recruitApplies;
 
     @Builder
     public RecruitPeriod(String yearOf, LocalDateTime startDate, LocalDateTime endDate, List<String> questions) {

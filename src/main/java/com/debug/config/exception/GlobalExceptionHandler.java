@@ -73,4 +73,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<FailureResponseBody> handleRecruitApplyNotFoundException(RecruitApplyNotFoundException e) {
         return FailureResponseBody.toResponseEntity(e.getStatusEnum());
     }
+
+    @ExceptionHandler(NoRecruitApplyPermissionException.class)
+    public ResponseEntity<FailureResponseBody> handleNoRecruitApplyPermissionException(NoRecruitApplyPermissionException e) {
+        return FailureResponseBody.toResponseEntity(e.getStatusEnum());
+    }
 }
