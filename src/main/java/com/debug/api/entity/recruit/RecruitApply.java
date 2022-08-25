@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import javax.persistence.*;
 import java.util.Map;
@@ -55,14 +56,14 @@ public class RecruitApply extends BaseTimeEntity {
 class BooleanToYNConverter implements AttributeConverter<Boolean, String>{
     @Override
     public String convertToDatabaseColumn(Boolean attribute){
-        if (attribute == null) return null;
+        if (attribute == null) return "";
 
         return attribute ? "Y" : "N";
     }
 
     @Override
     public Boolean convertToEntityAttribute(String dbData){
-        if (dbData == null) return null;
+        if (dbData.equals("")) return null;
 
         return "Y".equals(dbData);
     }
@@ -71,7 +72,7 @@ class BooleanToYNConverter implements AttributeConverter<Boolean, String>{
 @Converter
 class MapToStringConverter implements AttributeConverter<Map<String, String>, String>{
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
 
     @Override
     public String convertToDatabaseColumn(Map<String, String> attribute) {
