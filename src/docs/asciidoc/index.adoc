@@ -7,7 +7,7 @@ endif::[]
 
 = Debug Web Server API Docs
 :toc: left
-:toclevels: 3
+:toclevels: 4
 :sectlinks:
 
 //[[resources-users]]
@@ -23,7 +23,7 @@ access token은 서버를 통해 유저의 정보를 가져올 수 있으며 ref
 
 아래에 토큰 별 만료 시간을 표 형식으로 나타냈습니다.
 
-|===
+|====
 
 |Token|Expired Time(ms)|Expired Time(minute)
 
@@ -31,11 +31,11 @@ access token은 서버를 통해 유저의 정보를 가져올 수 있으며 ref
 |`+1800000+`
 |`+30+`
 
-|`+Refresh Token`
+|`+Refresh Token+`
 |`+604800000+`
 |`+10080+`
 
-|===
+|====
 
 access token은 header를 통해 서버와 통신하기 때문에 취약점이 존재합니다.
 
@@ -47,50 +47,50 @@ refresh token은 7일의 만료 시간을 가지며 httpOnly를 설정함으로�
 
 추가로 OAuth2로 외부 인증 api를 통해 더 쉽게 로그인 또는 회원가입을 시도할 수 있습니다.
 
-== Users
-=== 유저 정보 요청
+=== Users
+==== 유저 정보 요청
 현재 인증 된(header에 정상적인 access token이 존재)의 유저 정보를 불러옵니다.
 
 operation::user/success-get-my-user[snippets='http-request,http-response,request-headers,response-fields']
 
 header에 토큰이 없는 경우 다음과 같은 오류가 반환됩니다.
 
-=== 다른 유저 존재 유무
+==== 다른 유저 존재 유무
 url parameter로 userId를 받아서 db에 존재하는지 확인합니다.
 
 response data가 없기 때문에 회원가입을 할 때 id가 존재 유무 판단 용도로 사용하세요.
 
 operation::user/user-exists[snippets='http-request,path-parameters']
 
-==== 유저가 존재 할 때
+===== 유저가 존재 할 때
 operation::user/user-exists[snippets='http-response']
 
-==== 유저가 존재 하지 않을 때
+===== 유저가 존재 하지 않을 때
 operation::user/user-does-not-exist[snippets='http-response']
 
 [#_유저_회원_가입]
-=== 유저 회원 가입
+==== 유저 회원 가입
 유저의 회원가입입니다.
 
 operation::user/success-sign-up[snippets='http-request,http-response,request-fields']
 
-==== 실패
+===== 실패
 아래 사항은 서버가 요청을 거부한 경우입니다.
 
-===== 1. request field에서 userId가 이미 서버에 존재하는 경우
+====== 1. request field에서 userId가 이미 서버에 존재하는 경우
 클라이언트에서 먼저 link:#_다른_유저_존재_유무[1차 검증]을 해주는걸 추천드립니다.
 
 만일의 상황에 대비해서 서버에서 2차 검증이 실패하도록 구현했습니다.
 
 operation::user/failure-sign-up-when-user-id-already-in-use[snippets='http-response']
 
-===== 2. request로 받은 패스워드 두개가 서로 다를 때
+====== 2. request로 받은 패스워드 두개가 서로 다를 때
 이것도 마찬가지로 1차로 클라이언트 자체 검증을 하는걸 추천드립니다.
 
 operation::user/failure-sign-up-when-invalid-password[snippets='http-response']
 
 [#_oauth2_회원가입]
-=== OAuth2 회원가입
+==== OAuth2 회원가입
 OAuth2로 생성된 유저 튜플은 role이 "ROLE_GUEST"이기 때문에 권한이 로그인 안된 유저와 동급입니다.
 
 따라서 필수로 회원가입을 마쳐야 됩니다.
@@ -99,22 +99,22 @@ OAuth2로 생성된 유저 튜플은 role이 "ROLE_GUEST"이기 때문에 권한
 
 operation::user/success-change-unconfirmed[snippets='http-request,http-response,request-fields']
 
-==== 실패
+===== 실패
 아래 사항은 서버가 요청을 거부한 경우입니다.
 
-===== 1. request field에서 userId가 이미 서버에 존재하는 경우
+====== 1. request field에서 userId가 이미 서버에 존재하는 경우
 link:#_1_request_field에서_userid가_이미_서버에_존재하는_경우[회원가입 설명과 동일]
 
 operation::user/failure-change-unconfirmed-when-user-id-already-in-use[snippets='http-response']
 
-===== 2. request로 받은 패스워드 두개가 서로 다를 때
+====== 2. request로 받은 패스워드 두개가 서로 다를 때
 link:#_2_request로_받은_패스워드_두개가_서로_다를_때[회원가입 설명과 동일]
 
 operation::user/failure-change-unconfirmed-when-invalid-password[snippets='http-response']
 
-== Auth
+=== Auth
 [#_로그인]
-=== 로그인
+==== 로그인
 두가지 인증 방법 중 서버에 구현된 로그인을 통한 토큰 발급입니다.
 
 아이디와 패스워드를 db에 대조해서 로그인을 시도합니다.
@@ -123,15 +123,15 @@ operation::user/failure-change-unconfirmed-when-invalid-password[snippets='http-
 
 operation::auth/success-login[snippets='http-request,http-response,request-fields,response-fields']
 
-==== 실패
+===== 실패
 아래 사항은 서버가 요청을 거부한 경우입니다.
 
-===== userId가 db에 존재하지 않을 경우 또는 userId는 db에 존재하지만 비밀번호가 틀린경우
+======= userId가 db에 존재하지 않을 경우 또는 userId는 db에 존재하지만 비밀번호가 틀린경우
 
 operation::auth/failure-login-when-not-found-user[snippets='http-response']
 
 [#_refresh]
-=== Refresh
+==== Refresh
 refresh token을 이용해서 access token을 발급합니다.
 
 header에 있는 access token이 만료됬는지 확인하고 쿠키에 있는 refresh token을 통해 재발급합니다.
@@ -144,26 +144,24 @@ operation::auth/success-refresh-not-update-when-refresh-token[snippets='http-req
 
 만약 refresh token의 만료 시간이 3일 이하라면 아래와 같이 refresh token도 재발급 되어 기존과 교체됩니다.
 
-operation::auth/success-refresh-when-update-refresh-token[snippets='http-response'']
+operation::auth/success-refresh-when-update-refresh-token[snippets='http-response,request-headers,response-fields']
 
-operation::auth/success-refresh-when-update-refresh-token[snippets='request-headers,response-fields']
-
-==== 실패
+===== 실패
 
 아래 사항은 서버가 요청을 거부한 경우입니다.
 
-===== 1. access token이 위조 또는 잘못된 경우
+====== 1. access token이 위조 또는 잘못된 경우
 operation::auth/failure-refresh-when-invalid-access-token[snippets='http-response']
 
-===== 2. access token이 만료되지 않은 경우
+====== 2. access token이 만료되지 않은 경우
 만료되지 않았기 때문에 재발급 할 필요가 없습니다.
 
 operation::auth/failure-refresh-when-not-expired-access-token[snippets='http-response']
 
-===== 3. refresh token이 위조 또는 잘못된 경우
+====== 3. refresh token이 위조 또는 잘못된 경우
 operation::auth/failure-refresh-when-invalid-refresh-token[snippets='http-response']
 
-== OAuth2
+=== OAuth2
 
 OAuth2를 통한 인증 방식입니다.
 
@@ -195,44 +193,151 @@ url에 access token이 그리고 cookie에 refresh token이 지정된 상태로 
 
 redirect uri 값이 없거나 서버에서 허용된 url이 아닌 경우 토큰이 발급되지 않고 오류가 발생하니 주의하세요.
 
-=== Google
+==== Google
 Google api를 통해서 인증합니다.
 
 ----
 /oauth2/authorization/google?redirect_uri={redirect_uri}
 ----
 
-== Exception Handing
+=== Exception Handing
 본 문단은 인증이 실패한 경우, 또는 리소스에 접근할 권한이 아닌 경우에 대해 설명합니다.
 
-=== UnAuthorized(401)
+==== UnAuthorized(401)
 
-==== Access Token이 없을 경우
+===== Access Token이 없을 경우
 Access Token이 없을 경우 인증이 필요한 url에 접근할 수 없습니다.
 
 operation::access-exception-handle/unauthorized-when-access-token-is-null[snippets='http-request,http-response']
 
-==== Access Token이 만료 됬을 경우
+===== Access Token이 만료 됬을 경우
 이 경우에는 Access Token이 유효하지만 만료되어서 사용할 수 없습니다.
 
 link:#_refresh[refresh]를 통해서 Access Token을 재발급 받아야 인증을 할 수 있습니다.
 
 operation::access-exception-handle/unauthorized-when-access-token-is-expired[snippets='http-request,http-response']
 
-==== Access Token이 위조되거나 잘못된 토큰일 경우
+===== Access Token이 위조되거나 잘못된 토큰일 경우
 서버에서 Access Token을 Claim화 하기전 위조(또는 잘못)된 토큰으로 판별할 경우 입니다.
 
 operation::access-exception-handle/unauthorized-when-access-token-is-invalid[snippets='http-request,http-response']
 
-=== Forbidden(403)
+==== Forbidden(403)
 
-==== 사용자 Role이 "ROLE_GUEST"일 경우
+===== 사용자 Role이 "ROLE_GUEST"일 경우
 OAuth2로 로그인한 유저가 아직 회원가입을 마치지 않을 경우입니다.
 
 이 경우 link:#_oauth2_회원가입[OAuth2 회원가입] 페이지로 리다이렉트하여 회원가입을 마쳐주세요.
 
 operation::access-exception-handle/forbidden-when-role-guest-accesses-disallowed-url[snippets='http-request,http-response']
 
-==== 사용자 Role이 권한이 제한된 url에 접근 할 경우
+===== 사용자 Role이 권한이 제한된 url에 접근 할 경우
 
 operation::access-exception-handle/forbidden-when-a-non-role-guest-authenticator-accesses-a-disallowed-url[snippets='http-request,http-response']
+
+== Recruit
+=== 개요
+이 문단에서는 지원 기간 정보 또는 지원서에 관한 api를 설명합니다.
+
+=== 지원 기간
+지원 기간에 관한 uri는 인증 되지 않은 유저도 요청할 수 있습니다. 또 role에 제약을 받지않습니다.
+
+==== 모든 지원 기간 정보 요청
+서버 DB에 존재하는 모든 지원 기간 정보들을 반환합니다.
+
+operation::recruit/period/success-find-all-recruit-periods[snippets='http-request,http-response,response-fields']
+
+===== 정보가 없을 경우
+operation::recruit/period/no-recruit-periods-content[snippets='http-response']
+
+==== 특정 지원 기간 정보 요청
+Recruit Period PK를 path parameter로 받아서 해당 정보를 반환합니다.
+
+operation::recruit/period/success-find-by-recruit-period-id[snippets='http-request,http-response,path-parameters,response-fields']
+
+===== 실패
+아래 사항은 서버가 요청을 거부한 경우입니다.
+
+====== 해당 PK를 가진 지원 기간 정보가 없을 경우
+operation::recruit/period/failure-find-by-recruit-period-id[snippets='http-response']
+
+==== 최근 지원 기간 정보 반환
+지원이 가능하고 가장 최근 지원 기간 정보를 반환합니다.
+
+operation::recruit/period/success-find-by-recruit-period-id[snippets='http-request,http-response,path-parameters,response-fields']
+
+===== 실패
+아래 사항은 서버가 요청을 거부한 경우입니다
+
+====== 1. 해당 PK를 가진 지원 기간 정보가 없을 경우
+operation::recruit/period/failure-get-recent-recruit-period-when-recruit-period-not-found[snippets='http-response']
+
+====== 2. 정보는 찾았지만 지원 기간이 아닐 경우
+operation::recruit/period/failure-get-recent-recruit-period-when-request-can-not-apply[snippets='http-response']
+
+=== 지원서
+지원서에 관한 uri는 로그인 된 유저가 필요하며 role에 따라서 요청 할 수 있는 범위가 제한되어 있습니다.
+
+==== 자신이 쓴 모든 지원서 정보 요청
+로그인 된 유저의 모든 지원서 정보를 요청합니다.
+
+로그인 안한 유저와 role이 GUEST인 유저는 접근 할 수 없습니다.
+
+요청에 성공하게 된다면 최신 지원서 순으로 정렬되어 배열로 반환됩니다.
+
+operation::recruit/apply/success-find-all-my-applies[snippets='http-request,response-body,request-headers,response-fields']
+
+지원서 목록이 없다면 다음과 같은 response body를 받습니다.
+
+operation::recruit/apply/no-my-applies-content[snippets='response-body']
+
+===== 실패
+====== 현재 로그인 된 유저가 db에 없는 경우
+operation::recruit/apply/failure-find-all-my-applies-when-not-found-user[snippets='response-body']
+
+==== 지원서 작성
+지원서를 작성합니다. 로그인이 필요하며 해당 유저의 role이 UNCONFIRMED 상태여만 요청 가능합니다.
+
+request body에는 객체 형태로 key는 질문 내용, value는 질문에 대한 답변 형태로만 보내면 됩니다.
+
+operation::recruit/apply/success-create-apply[snippets='http-request,response-body,path-parameters,request-headers,response-fields']
+
+===== 실패
+====== 1. 해당 pk로 존재하는 지원 기간 정보가 없을 때
+operation::recruit/apply/failure-create-apply-when-recruit-period-not-found[snippets='response-body']
+
+====== 2. 지원 기간이 아닐 때
+operation::recruit/apply/failure-create-apply-when-the-application-period-is-not[snippets='response-body']
+
+====== 3. 로그인 한 유저가 이미 해당 기간에 지원서가 작성되어 있을 때
+operation::recruit/apply/failure-create-apply-when-already-applied-by-user[snippets='response-body']
+
+==== 지원서 수정
+link:#_지원서_작성[지원서 작성]과 유사합니다.
+
+operation::recruit/apply/success-update-apply[snippets='http-request,response-body,path-parameters,request-headers,response-fields']
+
+===== 실패
+====== 1. 해당 pk로 존재하는 지원서 정보가 없을 때
+operation::recruit/apply/failure-update-apply-when-recruit-apply-not-found[snippets='response-body']
+
+====== 2. 수정하는 지원서의 작성자와 현재 로그인 한 유저 정보가 다를 때
+operation::recruit/apply/failure-update-apply-when-no_apply_permission[snippets='response-body']
+
+====== 3. 지원 기간이 아닐 때
+operation::recruit/apply/failure-update-apply-when-the-application-period-is-not[snippets='response-body']
+
+==== 지원서 삭제
+지원서를 삭제합니다. 로그인이 필요하며 해당 유저의 role이 UNCONFIRMED 상태여만 요청 가능합니다.
+
+operation::recruit/apply/success-delete-recruit-apply[snippets='http-request,http-response,path-parameters,request-headers']
+
+===== 실패
+====== 1. 해당 pk로 존재하는 지원서 정보가 없을 때
+operation::recruit/apply/failure-delete-recruit-apply-when-recruit-apply-not-found[snippets='response-body']
+
+====== 2. 삭제하는 지원서의 작성자와 현재 로그인 한 유저 정보가 다를 때
+operation::recruit/apply/failure-delete-recruit-apply-when-no-recruit-apply-permission[snippets='response-body']
+
+====== 3. 지원 기간이 아닐 때
+operation::recruit/apply/failure-delete-recruit-apply-when-non-reception-period[snippets='response-body']
