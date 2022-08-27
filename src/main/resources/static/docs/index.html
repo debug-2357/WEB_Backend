@@ -448,12 +448,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_security">Security</a>
 <ul class="sectlevel2">
 <li><a href="#_개요">개요</a></li>
-</ul>
-</li>
 <li><a href="#_users">Users</a>
-<ul class="sectlevel2">
-<li><a href="#_유저_정보_요청">유저 정보 요청</a>
 <ul class="sectlevel3">
+<li><a href="#_유저_정보_요청">유저 정보 요청</a>
+<ul class="sectlevel4">
 <li><a href="#_유저_정보_요청_http_request">HTTP request</a></li>
 <li><a href="#_유저_정보_요청_http_response">HTTP response</a></li>
 <li><a href="#_유저_정보_요청_request_headers">Request headers</a></li>
@@ -461,7 +459,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_다른_유저_존재_유무">다른 유저 존재 유무</a>
-<ul class="sectlevel3">
+<ul class="sectlevel4">
 <li><a href="#_다른_유저_존재_유무_http_request">HTTP request</a></li>
 <li><a href="#_다른_유저_존재_유무_path_parameters">Path parameters</a></li>
 <li><a href="#_유저가_존재_할_때">유저가 존재 할 때</a></li>
@@ -469,7 +467,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_유저_회원_가입">유저 회원 가입</a>
-<ul class="sectlevel3">
+<ul class="sectlevel4">
 <li><a href="#_유저_회원_가입_http_request">HTTP request</a></li>
 <li><a href="#_유저_회원_가입_http_response">HTTP response</a></li>
 <li><a href="#_유저_회원_가입_request_fields">Request fields</a></li>
@@ -477,7 +475,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_oauth2_회원가입">OAuth2 회원가입</a>
-<ul class="sectlevel3">
+<ul class="sectlevel4">
 <li><a href="#_oauth2_회원가입_http_request">HTTP request</a></li>
 <li><a href="#_oauth2_회원가입_http_response">HTTP response</a></li>
 <li><a href="#_oauth2_회원가입_request_fields">Request fields</a></li>
@@ -487,9 +485,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_auth">Auth</a>
-<ul class="sectlevel2">
-<li><a href="#_로그인">로그인</a>
 <ul class="sectlevel3">
+<li><a href="#_로그인">로그인</a>
+<ul class="sectlevel4">
 <li><a href="#_로그인_http_request">HTTP request</a></li>
 <li><a href="#_로그인_http_response">HTTP response</a></li>
 <li><a href="#_로그인_request_fields">Request fields</a></li>
@@ -498,7 +496,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_refresh">Refresh</a>
-<ul class="sectlevel3">
+<ul class="sectlevel4">
 <li><a href="#_refresh_http_request">HTTP request</a></li>
 <li><a href="#_refresh_http_response">HTTP response</a></li>
 <li><a href="#_refresh_http_response">HTTP response</a></li>
@@ -510,23 +508,103 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_oauth2">OAuth2</a>
-<ul class="sectlevel2">
+<ul class="sectlevel3">
 <li><a href="#_google">Google</a></li>
 </ul>
 </li>
 <li><a href="#_exception_handing">Exception Handing</a>
-<ul class="sectlevel2">
-<li><a href="#_unauthorized401">UnAuthorized(401)</a>
 <ul class="sectlevel3">
+<li><a href="#_unauthorized401">UnAuthorized(401)</a>
+<ul class="sectlevel4">
 <li><a href="#_access_token이_없을_경우">Access Token이 없을 경우</a></li>
 <li><a href="#_access_token이_만료_됬을_경우">Access Token이 만료 됬을 경우</a></li>
 <li><a href="#_access_token이_위조되거나_잘못된_토큰일_경우">Access Token이 위조되거나 잘못된 토큰일 경우</a></li>
 </ul>
 </li>
 <li><a href="#_forbidden403">Forbidden(403)</a>
-<ul class="sectlevel3">
+<ul class="sectlevel4">
 <li><a href="#_사용자_role이_role_guest일_경우">사용자 Role이 "ROLE_GUEST"일 경우</a></li>
 <li><a href="#_사용자_role이_권한이_제한된_url에_접근_할_경우">사용자 Role이 권한이 제한된 url에 접근 할 경우</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_recruit">Recruit</a>
+<ul class="sectlevel2">
+<li><a href="#_개요_2">개요</a></li>
+<li><a href="#_지원_기간">지원 기간</a>
+<ul class="sectlevel3">
+<li><a href="#_모든_지원_기간_정보_요청">모든 지원 기간 정보 요청</a>
+<ul class="sectlevel4">
+<li><a href="#_모든_지원_기간_정보_요청_http_request">HTTP request</a></li>
+<li><a href="#_모든_지원_기간_정보_요청_http_response">HTTP response</a></li>
+<li><a href="#_모든_지원_기간_정보_요청_response_fields">Response fields</a></li>
+<li><a href="#_정보가_없을_경우">정보가 없을 경우</a></li>
+</ul>
+</li>
+<li><a href="#_특정_지원_기간_정보_요청">특정 지원 기간 정보 요청</a>
+<ul class="sectlevel4">
+<li><a href="#_특정_지원_기간_정보_요청_http_request">HTTP request</a></li>
+<li><a href="#_특정_지원_기간_정보_요청_http_response">HTTP response</a></li>
+<li><a href="#_특정_지원_기간_정보_요청_path_parameters">Path parameters</a></li>
+<li><a href="#_특정_지원_기간_정보_요청_response_fields">Response fields</a></li>
+<li><a href="#_실패_5">실패</a></li>
+</ul>
+</li>
+<li><a href="#_최근_지원_기간_정보_반환">최근 지원 기간 정보 반환</a>
+<ul class="sectlevel4">
+<li><a href="#_최근_지원_기간_정보_반환_http_request">HTTP request</a></li>
+<li><a href="#_최근_지원_기간_정보_반환_http_response">HTTP response</a></li>
+<li><a href="#_최근_지원_기간_정보_반환_path_parameters">Path parameters</a></li>
+<li><a href="#_최근_지원_기간_정보_반환_response_fields">Response fields</a></li>
+<li><a href="#_실패_6">실패</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_지원서">지원서</a>
+<ul class="sectlevel3">
+<li><a href="#_자신이_쓴_모든_지원서_정보_요청">자신이 쓴 모든 지원서 정보 요청</a>
+<ul class="sectlevel4">
+<li><a href="#_자신이_쓴_모든_지원서_정보_요청_http_request">HTTP request</a></li>
+<li><a href="#_자신이_쓴_모든_지원서_정보_요청_response_body">Response body</a></li>
+<li><a href="#_자신이_쓴_모든_지원서_정보_요청_request_headers">Request headers</a></li>
+<li><a href="#_자신이_쓴_모든_지원서_정보_요청_response_fields">Response fields</a></li>
+<li><a href="#_자신이_쓴_모든_지원서_정보_요청_response_body">Response body</a></li>
+<li><a href="#_실패_7">실패</a></li>
+</ul>
+</li>
+<li><a href="#_지원서_작성">지원서 작성</a>
+<ul class="sectlevel4">
+<li><a href="#_지원서_작성_http_request">HTTP request</a></li>
+<li><a href="#_지원서_작성_response_body">Response body</a></li>
+<li><a href="#_지원서_작성_path_parameters">Path parameters</a></li>
+<li><a href="#_지원서_작성_request_headers">Request headers</a></li>
+<li><a href="#_지원서_작성_response_fields">Response fields</a></li>
+<li><a href="#_실패_8">실패</a></li>
+</ul>
+</li>
+<li><a href="#_지원서_수정">지원서 수정</a>
+<ul class="sectlevel4">
+<li><a href="#_지원서_수정_http_request">HTTP request</a></li>
+<li><a href="#_지원서_수정_response_body">Response body</a></li>
+<li><a href="#_지원서_수정_path_parameters">Path parameters</a></li>
+<li><a href="#_지원서_수정_request_headers">Request headers</a></li>
+<li><a href="#_지원서_수정_response_fields">Response fields</a></li>
+<li><a href="#_실패_9">실패</a></li>
+</ul>
+</li>
+<li><a href="#_지원서_삭제">지원서 삭제</a>
+<ul class="sectlevel4">
+<li><a href="#_지원서_삭제_http_request">HTTP request</a></li>
+<li><a href="#_지원서_삭제_http_response">HTTP response</a></li>
+<li><a href="#_지원서_삭제_path_parameters">Path parameters</a></li>
+<li><a href="#_지원서_삭제_request_headers">Request headers</a></li>
+<li><a href="#_실패_10">실패</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -573,7 +651,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>30</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>+Refresh Token</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Refresh Token</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>604800000</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>10080</code></p></td>
 </tr>
@@ -595,18 +673,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>추가로 OAuth2로 외부 인증 api를 통해 더 쉽게 로그인 또는 회원가입을 시도할 수 있습니다.</p>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_users"><a class="link" href="#_users">Users</a></h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_유저_정보_요청"><a class="link" href="#_유저_정보_요청">유저 정보 요청</a></h3>
+<h3 id="_users"><a class="link" href="#_users">Users</a></h3>
+<div class="sect3">
+<h4 id="_유저_정보_요청"><a class="link" href="#_유저_정보_요청">유저 정보 요청</a></h4>
 <div class="paragraph">
 <p>현재 인증 된(header에 정상적인 access token이 존재)의 유저 정보를 불러옵니다.</p>
 </div>
-<div class="sect3">
-<h4 id="_유저_정보_요청_http_request"><a class="link" href="#_유저_정보_요청_http_request">HTTP request</a></h4>
+<div class="sect4">
+<h5 id="_유저_정보_요청_http_request"><a class="link" href="#_유저_정보_요청_http_request">HTTP request</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/users HTTP/1.1
@@ -615,8 +690,8 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_유저_정보_요청_http_response"><a class="link" href="#_유저_정보_요청_http_response">HTTP response</a></h4>
+<div class="sect4">
+<h5 id="_유저_정보_요청_http_response"><a class="link" href="#_유저_정보_요청_http_response">HTTP response</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -624,7 +699,7 @@ Content-Type: application/json
 Content-Length: 324
 
 {
-  "timestamp" : "2022-08-23 00:02:45",
+  "timestamp" : "2022-08-27 20:37:47",
   "status" : 200,
   "statusDetail" : "OK",
   "code" : "GET_USER_INFO",
@@ -640,8 +715,8 @@ Content-Length: 324
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_유저_정보_요청_request_headers"><a class="link" href="#_유저_정보_요청_request_headers">Request headers</a></h4>
+<div class="sect4">
+<h5 id="_유저_정보_요청_request_headers"><a class="link" href="#_유저_정보_요청_request_headers">Request headers</a></h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -661,8 +736,8 @@ Content-Length: 324
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_유저_정보_요청_response_fields"><a class="link" href="#_유저_정보_요청_response_fields">Response fields</a></h4>
+<div class="sect4">
+<h5 id="_유저_정보_요청_response_fields"><a class="link" href="#_유저_정보_요청_response_fields">Response fields</a></h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -709,16 +784,16 @@ Content-Length: 324
 <p>header에 토큰이 없는 경우 다음과 같은 오류가 반환됩니다.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_다른_유저_존재_유무"><a class="link" href="#_다른_유저_존재_유무">다른 유저 존재 유무</a></h3>
+<div class="sect3">
+<h4 id="_다른_유저_존재_유무"><a class="link" href="#_다른_유저_존재_유무">다른 유저 존재 유무</a></h4>
 <div class="paragraph">
 <p>url parameter로 userId를 받아서 db에 존재하는지 확인합니다.</p>
 </div>
 <div class="paragraph">
 <p>response data가 없기 때문에 회원가입을 할 때 id가 존재 유무 판단 용도로 사용하세요.</p>
 </div>
-<div class="sect3">
-<h4 id="_다른_유저_존재_유무_http_request"><a class="link" href="#_다른_유저_존재_유무_http_request">HTTP request</a></h4>
+<div class="sect4">
+<h5 id="_다른_유저_존재_유무_http_request"><a class="link" href="#_다른_유저_존재_유무_http_request">HTTP request</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/users/exists/testUserID HTTP/1.1
@@ -726,8 +801,8 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_다른_유저_존재_유무_path_parameters"><a class="link" href="#_다른_유저_존재_유무_path_parameters">Path parameters</a></h4>
+<div class="sect4">
+<h5 id="_다른_유저_존재_유무_path_parameters"><a class="link" href="#_다른_유저_존재_유무_path_parameters">Path parameters</a></h5>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. /api/users/exists/{userId}</caption>
 <colgroup>
@@ -748,10 +823,10 @@ Host: localhost:8080</code></pre>
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_유저가_존재_할_때"><a class="link" href="#_유저가_존재_할_때">유저가 존재 할 때</a></h4>
 <div class="sect4">
-<h5 id="_유저가_존재_할_때_http_response"><a class="link" href="#_유저가_존재_할_때_http_response">HTTP response</a></h5>
+<h5 id="_유저가_존재_할_때"><a class="link" href="#_유저가_존재_할_때">유저가 존재 할 때</a></h5>
+<div class="sect5">
+<h6 id="_유저가_존재_할_때_http_response"><a class="link" href="#_유저가_존재_할_때_http_response">HTTP response</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -759,7 +834,7 @@ Content-Type: application/json
 Content-Length: 184
 
 {
-  "timestamp" : "2022-08-23 00:02:44",
+  "timestamp" : "2022-08-27 20:37:47",
   "status" : 200,
   "statusDetail" : "OK",
   "code" : "USER_EXISTS",
@@ -770,10 +845,10 @@ Content-Length: 184
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_유저가_존재_하지_않을_때"><a class="link" href="#_유저가_존재_하지_않을_때">유저가 존재 하지 않을 때</a></h4>
 <div class="sect4">
-<h5 id="_유저가_존재_하지_않을_때_http_response"><a class="link" href="#_유저가_존재_하지_않을_때_http_response">HTTP response</a></h5>
+<h5 id="_유저가_존재_하지_않을_때"><a class="link" href="#_유저가_존재_하지_않을_때">유저가 존재 하지 않을 때</a></h5>
+<div class="sect5">
+<h6 id="_유저가_존재_하지_않을_때_http_response"><a class="link" href="#_유저가_존재_하지_않을_때_http_response">HTTP response</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 204 No Content
@@ -781,7 +856,7 @@ Content-Type: application/json
 Content-Length: 203
 
 {
-  "timestamp" : "2022-08-23 00:02:44",
+  "timestamp" : "2022-08-27 20:37:47",
   "status" : 204,
   "statusDetail" : "NO_CONTENT",
   "code" : "USER_DOSE_NOT_EXIST",
@@ -793,13 +868,13 @@ Content-Length: 203
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_유저_회원_가입"><a class="link" href="#_유저_회원_가입">유저 회원 가입</a></h3>
+<div class="sect3">
+<h4 id="_유저_회원_가입"><a class="link" href="#_유저_회원_가입">유저 회원 가입</a></h4>
 <div class="paragraph">
 <p>유저의 회원가입입니다.</p>
 </div>
-<div class="sect3">
-<h4 id="_유저_회원_가입_http_request"><a class="link" href="#_유저_회원_가입_http_request">HTTP request</a></h4>
+<div class="sect4">
+<h5 id="_유저_회원_가입_http_request"><a class="link" href="#_유저_회원_가입_http_request">HTTP request</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/users HTTP/1.1
@@ -817,8 +892,8 @@ Host: localhost:8080
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_유저_회원_가입_http_response"><a class="link" href="#_유저_회원_가입_http_response">HTTP response</a></h4>
+<div class="sect4">
+<h5 id="_유저_회원_가입_http_response"><a class="link" href="#_유저_회원_가입_http_response">HTTP response</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -826,7 +901,7 @@ Content-Type: application/json
 Content-Length: 177
 
 {
-  "timestamp" : "2022-08-23 00:02:45",
+  "timestamp" : "2022-08-27 20:37:47",
   "status" : 201,
   "statusDetail" : "CREATED",
   "code" : "CREATE_USER",
@@ -836,8 +911,8 @@ Content-Length: 177
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_유저_회원_가입_request_fields"><a class="link" href="#_유저_회원_가입_request_fields">Request fields</a></h4>
+<div class="sect4">
+<h5 id="_유저_회원_가입_request_fields"><a class="link" href="#_유저_회원_가입_request_fields">Request fields</a></h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -880,21 +955,21 @@ Content-Length: 177
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_실패"><a class="link" href="#_실패">실패</a></h4>
+<div class="sect4">
+<h5 id="_실패"><a class="link" href="#_실패">실패</a></h5>
 <div class="paragraph">
 <p>아래 사항은 서버가 요청을 거부한 경우입니다.</p>
 </div>
-<div class="sect4">
-<h5 id="_1_request_field에서_userid가_이미_서버에_존재하는_경우"><a class="link" href="#_1_request_field에서_userid가_이미_서버에_존재하는_경우">1. request field에서 userId가 이미 서버에 존재하는 경우</a></h5>
+<div class="sect5">
+<h6 id="_1_request_field에서_userid가_이미_서버에_존재하는_경우"><a class="link" href="#_1_request_field에서_userid가_이미_서버에_존재하는_경우">1. request field에서 userId가 이미 서버에 존재하는 경우</a></h6>
 <div class="paragraph">
 <p>클라이언트에서 먼저 <a href="#_다른_유저_존재_유무">1차 검증</a>을 해주는걸 추천드립니다.</p>
 </div>
 <div class="paragraph">
 <p>만일의 상황에 대비해서 서버에서 2차 검증이 실패하도록 구현했습니다.</p>
 </div>
-<div class="sect5">
-<h6 id="_1_request_field에서_userid가_이미_서버에_존재하는_경우_http_response"><a class="link" href="#_1_request_field에서_userid가_이미_서버에_존재하는_경우_http_response">HTTP response</a></h6>
+<div class="sect6">
+<h7 id="_1_request_field에서_userid가_이미_서버에_존재하는_경우_http_response"><a class="link" href="#_1_request_field에서_userid가_이미_서버에_존재하는_경우_http_response">HTTP response</a></h7>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -902,7 +977,7 @@ Content-Type: application/json
 Content-Length: 187
 
 {
-  "timestamp" : "2022-08-23 00:02:45",
+  "timestamp" : "2022-08-27 20:37:47",
   "status" : 400,
   "statusDetail" : "BAD_REQUEST",
   "code" : "USERID_ALREADY_IN_USER",
@@ -912,13 +987,13 @@ Content-Length: 187
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_2_request로_받은_패스워드_두개가_서로_다를_때"><a class="link" href="#_2_request로_받은_패스워드_두개가_서로_다를_때">2. request로 받은 패스워드 두개가 서로 다를 때</a></h5>
+<div class="sect5">
+<h6 id="_2_request로_받은_패스워드_두개가_서로_다를_때"><a class="link" href="#_2_request로_받은_패스워드_두개가_서로_다를_때">2. request로 받은 패스워드 두개가 서로 다를 때</a></h6>
 <div class="paragraph">
 <p>이것도 마찬가지로 1차로 클라이언트 자체 검증을 하는걸 추천드립니다.</p>
 </div>
-<div class="sect5">
-<h6 id="_2_request로_받은_패스워드_두개가_서로_다를_때_http_response"><a class="link" href="#_2_request로_받은_패스워드_두개가_서로_다를_때_http_response">HTTP response</a></h6>
+<div class="sect6">
+<h7 id="_2_request로_받은_패스워드_두개가_서로_다를_때_http_response"><a class="link" href="#_2_request로_받은_패스워드_두개가_서로_다를_때_http_response">HTTP response</a></h7>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -926,7 +1001,7 @@ Content-Type: application/json
 Content-Length: 181
 
 {
-  "timestamp" : "2022-08-23 00:02:45",
+  "timestamp" : "2022-08-27 20:37:47",
   "status" : 400,
   "statusDetail" : "BAD_REQUEST",
   "code" : "INVALID_PASSWORD",
@@ -938,8 +1013,8 @@ Content-Length: 181
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_oauth2_회원가입"><a class="link" href="#_oauth2_회원가입">OAuth2 회원가입</a></h3>
+<div class="sect3">
+<h4 id="_oauth2_회원가입"><a class="link" href="#_oauth2_회원가입">OAuth2 회원가입</a></h4>
 <div class="paragraph">
 <p>OAuth2로 생성된 유저 튜플은 role이 "ROLE_GUEST"이기 때문에 권한이 로그인 안된 유저와 동급입니다.</p>
 </div>
@@ -949,8 +1024,8 @@ Content-Length: 181
 <div class="paragraph">
 <p>기본적인 로직은 <a href="#_유저_회원_가입">유저 회원 가입</a>과 동일합니다.</p>
 </div>
-<div class="sect3">
-<h4 id="_oauth2_회원가입_http_request"><a class="link" href="#_oauth2_회원가입_http_request">HTTP request</a></h4>
+<div class="sect4">
+<h5 id="_oauth2_회원가입_http_request"><a class="link" href="#_oauth2_회원가입_http_request">HTTP request</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">PATCH /api/users HTTP/1.1
@@ -969,8 +1044,8 @@ Host: localhost:8080
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_oauth2_회원가입_http_response"><a class="link" href="#_oauth2_회원가입_http_response">HTTP response</a></h4>
+<div class="sect4">
+<h5 id="_oauth2_회원가입_http_response"><a class="link" href="#_oauth2_회원가입_http_response">HTTP response</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -978,7 +1053,7 @@ Content-Type: application/json
 Content-Length: 197
 
 {
-  "timestamp" : "2022-08-23 00:02:45",
+  "timestamp" : "2022-08-27 20:37:47",
   "status" : 200,
   "statusDetail" : "OK",
   "code" : "SUCCESS_SIGN_UP",
@@ -988,8 +1063,8 @@ Content-Length: 197
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_oauth2_회원가입_request_fields"><a class="link" href="#_oauth2_회원가입_request_fields">Request fields</a></h4>
+<div class="sect4">
+<h5 id="_oauth2_회원가입_request_fields"><a class="link" href="#_oauth2_회원가입_request_fields">Request fields</a></h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1032,18 +1107,18 @@ Content-Length: 197
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_실패_2"><a class="link" href="#_실패_2">실패</a></h4>
+<div class="sect4">
+<h5 id="_실패_2"><a class="link" href="#_실패_2">실패</a></h5>
 <div class="paragraph">
 <p>아래 사항은 서버가 요청을 거부한 경우입니다.</p>
 </div>
-<div class="sect4">
-<h5 id="_1_request_field에서_userid가_이미_서버에_존재하는_경우_2"><a class="link" href="#_1_request_field에서_userid가_이미_서버에_존재하는_경우_2">1. request field에서 userId가 이미 서버에 존재하는 경우</a></h5>
+<div class="sect5">
+<h6 id="_1_request_field에서_userid가_이미_서버에_존재하는_경우_2"><a class="link" href="#_1_request_field에서_userid가_이미_서버에_존재하는_경우_2">1. request field에서 userId가 이미 서버에 존재하는 경우</a></h6>
 <div class="paragraph">
 <p><a href="#_1_request_field에서_userid가_이미_서버에_존재하는_경우">회원가입 설명과 동일</a></p>
 </div>
-<div class="sect5">
-<h6 id="_1_request_field에서_userid가_이미_서버에_존재하는_경우_2_http_response"><a class="link" href="#_1_request_field에서_userid가_이미_서버에_존재하는_경우_2_http_response">HTTP response</a></h6>
+<div class="sect6">
+<h7 id="_1_request_field에서_userid가_이미_서버에_존재하는_경우_2_http_response"><a class="link" href="#_1_request_field에서_userid가_이미_서버에_존재하는_경우_2_http_response">HTTP response</a></h7>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -1051,7 +1126,7 @@ Content-Type: application/json
 Content-Length: 187
 
 {
-  "timestamp" : "2022-08-23 00:02:45",
+  "timestamp" : "2022-08-27 20:37:47",
   "status" : 400,
   "statusDetail" : "BAD_REQUEST",
   "code" : "USERID_ALREADY_IN_USER",
@@ -1061,13 +1136,13 @@ Content-Length: 187
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_2_request로_받은_패스워드_두개가_서로_다를_때_2"><a class="link" href="#_2_request로_받은_패스워드_두개가_서로_다를_때_2">2. request로 받은 패스워드 두개가 서로 다를 때</a></h5>
+<div class="sect5">
+<h6 id="_2_request로_받은_패스워드_두개가_서로_다를_때_2"><a class="link" href="#_2_request로_받은_패스워드_두개가_서로_다를_때_2">2. request로 받은 패스워드 두개가 서로 다를 때</a></h6>
 <div class="paragraph">
 <p><a href="#_2_request로_받은_패스워드_두개가_서로_다를_때">회원가입 설명과 동일</a></p>
 </div>
-<div class="sect5">
-<h6 id="_2_request로_받은_패스워드_두개가_서로_다를_때_2_http_response"><a class="link" href="#_2_request로_받은_패스워드_두개가_서로_다를_때_2_http_response">HTTP response</a></h6>
+<div class="sect6">
+<h7 id="_2_request로_받은_패스워드_두개가_서로_다를_때_2_http_response"><a class="link" href="#_2_request로_받은_패스워드_두개가_서로_다를_때_2_http_response">HTTP response</a></h7>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -1075,7 +1150,7 @@ Content-Type: application/json
 Content-Length: 181
 
 {
-  "timestamp" : "2022-08-23 00:02:45",
+  "timestamp" : "2022-08-27 20:37:47",
   "status" : 400,
   "statusDetail" : "BAD_REQUEST",
   "code" : "INVALID_PASSWORD",
@@ -1088,12 +1163,10 @@ Content-Length: 181
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_auth"><a class="link" href="#_auth">Auth</a></h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_로그인"><a class="link" href="#_로그인">로그인</a></h3>
+<h3 id="_auth"><a class="link" href="#_auth">Auth</a></h3>
+<div class="sect3">
+<h4 id="_로그인"><a class="link" href="#_로그인">로그인</a></h4>
 <div class="paragraph">
 <p>두가지 인증 방법 중 서버에 구현된 로그인을 통한 토큰 발급입니다.</p>
 </div>
@@ -1103,8 +1176,8 @@ Content-Length: 181
 <div class="paragraph">
 <p>성공적으로 로그인이 되면 body에 access token, cookie에 refresh token이 요청자에게 반환됩니다.</p>
 </div>
-<div class="sect3">
-<h4 id="_로그인_http_request"><a class="link" href="#_로그인_http_request">HTTP request</a></h4>
+<div class="sect4">
+<h5 id="_로그인_http_request"><a class="link" href="#_로그인_http_request">HTTP request</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/auth/login HTTP/1.1
@@ -1119,17 +1192,17 @@ Host: localhost:8080
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_로그인_http_response"><a class="link" href="#_로그인_http_response">HTTP response</a></h4>
+<div class="sect4">
+<h5 id="_로그인_http_response"><a class="link" href="#_로그인_http_response">HTTP response</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
-Set-Cookie: refresh_token={refresh token}; Path=/; Max-Age=10080000; Expires=Sat, 17 Dec 2022 07:02:43 GMT; HttpOnly
+Set-Cookie: refresh_token={refresh token}; Path=/; Max-Age=10080000; Expires=Thu, 22 Dec 2022 03:37:45 GMT; HttpOnly
 Content-Type: application/json
 Content-Length: 244
 
 {
-  "timestamp" : "2022-08-23 00:02:43",
+  "timestamp" : "2022-08-27 20:37:45",
   "status" : 201,
   "statusDetail" : "CREATED",
   "code" : "CREATE_TOKENS",
@@ -1141,8 +1214,8 @@ Content-Length: 244
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_로그인_request_fields"><a class="link" href="#_로그인_request_fields">Request fields</a></h4>
+<div class="sect4">
+<h5 id="_로그인_request_fields"><a class="link" href="#_로그인_request_fields">Request fields</a></h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1170,8 +1243,8 @@ Content-Length: 244
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_로그인_response_fields"><a class="link" href="#_로그인_response_fields">Response fields</a></h4>
+<div class="sect4">
+<h5 id="_로그인_response_fields"><a class="link" href="#_로그인_response_fields">Response fields</a></h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1194,15 +1267,16 @@ Content-Length: 244
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_실패_3"><a class="link" href="#_실패_3">실패</a></h4>
+<div class="sect4">
+<h5 id="_실패_3"><a class="link" href="#_실패_3">실패</a></h5>
 <div class="paragraph">
 <p>아래 사항은 서버가 요청을 거부한 경우입니다.</p>
 </div>
-<div class="sect4">
-<h5 id="_userid가_db에_존재하지_않을_경우_또는_userid는_db에_존재하지만_비밀번호가_틀린경우"><a class="link" href="#_userid가_db에_존재하지_않을_경우_또는_userid는_db에_존재하지만_비밀번호가_틀린경우">userId가 db에 존재하지 않을 경우 또는 userId는 db에 존재하지만 비밀번호가 틀린경우</a></h5>
+<div class="paragraph">
+<p>======= userId가 db에 존재하지 않을 경우 또는 userId는 db에 존재하지만 비밀번호가 틀린경우</p>
+</div>
 <div class="sect5">
-<h6 id="_userid가_db에_존재하지_않을_경우_또는_userid는_db에_존재하지만_비밀번호가_틀린경우_http_response"><a class="link" href="#_userid가_db에_존재하지_않을_경우_또는_userid는_db에_존재하지만_비밀번호가_틀린경우_http_response">HTTP response</a></h6>
+<h6 id="_실패_3_http_response"><a class="link" href="#_실패_3_http_response">HTTP response</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 401 Unauthorized
@@ -1210,7 +1284,7 @@ Content-Type: application/json
 Content-Length: 210
 
 {
-  "timestamp" : "2022-08-23 00:02:43",
+  "timestamp" : "2022-08-27 20:37:45",
   "status" : 401,
   "statusDetail" : "UNAUTHORIZED",
   "code" : "UNMATCHED_ID_OR_PASSWORD",
@@ -1221,9 +1295,8 @@ Content-Length: 210
 </div>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_refresh"><a class="link" href="#_refresh">Refresh</a></h3>
+<div class="sect3">
+<h4 id="_refresh"><a class="link" href="#_refresh">Refresh</a></h4>
 <div class="paragraph">
 <p>refresh token을 이용해서 access token을 발급합니다.</p>
 </div>
@@ -1236,8 +1309,8 @@ Content-Length: 210
 <div class="paragraph">
 <p>한개라도 없거나 잘못된 토큰일 경우 refresh가 안됩니다.이 경우에는 <a href="#_로그인">로그인</a>을 다시 해서 토큰들을 재발급하는 것을 권장합니다.</p>
 </div>
-<div class="sect3">
-<h4 id="_refresh_http_request"><a class="link" href="#_refresh_http_request">HTTP request</a></h4>
+<div class="sect4">
+<h5 id="_refresh_http_request"><a class="link" href="#_refresh_http_request">HTTP request</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/auth/refresh HTTP/1.1
@@ -1247,8 +1320,8 @@ Cookie: refresh_token={정상적인 refresh token}</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_refresh_http_response"><a class="link" href="#_refresh_http_response">HTTP response</a></h4>
+<div class="sect4">
+<h5 id="_refresh_http_response"><a class="link" href="#_refresh_http_response">HTTP response</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -1256,7 +1329,7 @@ Content-Type: application/json
 Content-Length: 257
 
 {
-  "timestamp" : "2022-08-23 00:02:44",
+  "timestamp" : "2022-08-27 20:37:45",
   "status" : 201,
   "statusDetail" : "CREATED",
   "code" : "CREATE_TOKENS",
@@ -1271,18 +1344,18 @@ Content-Length: 257
 <div class="paragraph">
 <p>만약 refresh token의 만료 시간이 3일 이하라면 아래와 같이 refresh token도 재발급 되어 기존과 교체됩니다.</p>
 </div>
-<div class="sect3">
-<h4 id="_refresh_http_response"><a class="link" href="#_refresh_http_response">HTTP response</a></h4>
+<div class="sect4">
+<h5 id="_refresh_http_response"><a class="link" href="#_refresh_http_response">HTTP response</a></h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
 Set-Cookie: refresh_token=; Path=/; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly
-Set-Cookie: refresh_token={정상적인 refresh token}; Path=/; Max-Age=10080000; Expires=Sat, 17 Dec 2022 07:02:43 GMT; HttpOnly
+Set-Cookie: refresh_token={정상적인 refresh token}; Path=/; Max-Age=10080000; Expires=Thu, 22 Dec 2022 03:37:45 GMT; HttpOnly
 Content-Type: application/json
 Content-Length: 257
 
 {
-  "timestamp" : "2022-08-23 00:02:43",
+  "timestamp" : "2022-08-27 20:37:45",
   "status" : 201,
   "statusDetail" : "CREATED",
   "code" : "CREATE_TOKENS",
@@ -1294,8 +1367,8 @@ Content-Length: 257
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_refresh_request_headers"><a class="link" href="#_refresh_request_headers">Request headers</a></h4>
+<div class="sect4">
+<h5 id="_refresh_request_headers"><a class="link" href="#_refresh_request_headers">Request headers</a></h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -1315,8 +1388,8 @@ Content-Length: 257
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_refresh_response_fields"><a class="link" href="#_refresh_response_fields">Response fields</a></h4>
+<div class="sect4">
+<h5 id="_refresh_response_fields"><a class="link" href="#_refresh_response_fields">Response fields</a></h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1339,15 +1412,15 @@ Content-Length: 257
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_실패_4"><a class="link" href="#_실패_4">실패</a></h4>
+<div class="sect4">
+<h5 id="_실패_4"><a class="link" href="#_실패_4">실패</a></h5>
 <div class="paragraph">
 <p>아래 사항은 서버가 요청을 거부한 경우입니다.</p>
 </div>
-<div class="sect4">
-<h5 id="_1_access_token이_위조_또는_잘못된_경우"><a class="link" href="#_1_access_token이_위조_또는_잘못된_경우">1. access token이 위조 또는 잘못된 경우</a></h5>
 <div class="sect5">
-<h6 id="_1_access_token이_위조_또는_잘못된_경우_http_response"><a class="link" href="#_1_access_token이_위조_또는_잘못된_경우_http_response">HTTP response</a></h6>
+<h6 id="_1_access_token이_위조_또는_잘못된_경우"><a class="link" href="#_1_access_token이_위조_또는_잘못된_경우">1. access token이 위조 또는 잘못된 경우</a></h6>
+<div class="sect6">
+<h7 id="_1_access_token이_위조_또는_잘못된_경우_http_response"><a class="link" href="#_1_access_token이_위조_또는_잘못된_경우_http_response">HTTP response</a></h7>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 401 Unauthorized
@@ -1355,7 +1428,7 @@ Content-Type: application/json
 Content-Length: 179
 
 {
-  "timestamp" : "2022-08-23 00:02:43",
+  "timestamp" : "2022-08-27 20:37:45",
   "status" : 401,
   "statusDetail" : "UNAUTHORIZED",
   "code" : "INVALID_ACCESS_TOKEN",
@@ -1365,13 +1438,13 @@ Content-Length: 179
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_2_access_token이_만료되지_않은_경우"><a class="link" href="#_2_access_token이_만료되지_않은_경우">2. access token이 만료되지 않은 경우</a></h5>
+<div class="sect5">
+<h6 id="_2_access_token이_만료되지_않은_경우"><a class="link" href="#_2_access_token이_만료되지_않은_경우">2. access token이 만료되지 않은 경우</a></h6>
 <div class="paragraph">
 <p>만료되지 않았기 때문에 재발급 할 필요가 없습니다.</p>
 </div>
-<div class="sect5">
-<h6 id="_2_access_token이_만료되지_않은_경우_http_response"><a class="link" href="#_2_access_token이_만료되지_않은_경우_http_response">HTTP response</a></h6>
+<div class="sect6">
+<h7 id="_2_access_token이_만료되지_않은_경우_http_response"><a class="link" href="#_2_access_token이_만료되지_않은_경우_http_response">HTTP response</a></h7>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
@@ -1379,7 +1452,7 @@ Content-Type: application/json
 Content-Length: 206
 
 {
-  "timestamp" : "2022-08-23 00:02:43",
+  "timestamp" : "2022-08-27 20:37:45",
   "status" : 400,
   "statusDetail" : "BAD_REQUEST",
   "code" : "NOT_EXPIRED_ACCESS_TOKEN_YET",
@@ -1389,10 +1462,10 @@ Content-Length: 206
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_3_refresh_token이_위조_또는_잘못된_경우"><a class="link" href="#_3_refresh_token이_위조_또는_잘못된_경우">3. refresh token이 위조 또는 잘못된 경우</a></h5>
 <div class="sect5">
-<h6 id="_3_refresh_token이_위조_또는_잘못된_경우_http_response"><a class="link" href="#_3_refresh_token이_위조_또는_잘못된_경우_http_response">HTTP response</a></h6>
+<h6 id="_3_refresh_token이_위조_또는_잘못된_경우"><a class="link" href="#_3_refresh_token이_위조_또는_잘못된_경우">3. refresh token이 위조 또는 잘못된 경우</a></h6>
+<div class="sect6">
+<h7 id="_3_refresh_token이_위조_또는_잘못된_경우_http_response"><a class="link" href="#_3_refresh_token이_위조_또는_잘못된_경우_http_response">HTTP response</a></h7>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 401 Unauthorized
@@ -1400,7 +1473,7 @@ Content-Type: application/json
 Content-Length: 181
 
 {
-  "timestamp" : "2022-08-23 00:02:43",
+  "timestamp" : "2022-08-27 20:37:45",
   "status" : 401,
   "statusDetail" : "UNAUTHORIZED",
   "code" : "INVALID_REFRESH_TOKEN",
@@ -1413,10 +1486,8 @@ Content-Length: 181
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_oauth2"><a class="link" href="#_oauth2">OAuth2</a></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_oauth2"><a class="link" href="#_oauth2">OAuth2</a></h3>
 <div class="paragraph">
 <p>OAuth2를 통한 인증 방식입니다.</p>
 </div>
@@ -1460,8 +1531,8 @@ Content-Length: 181
 <div class="paragraph">
 <p>redirect uri 값이 없거나 서버에서 허용된 url이 아닌 경우 토큰이 발급되지 않고 오류가 발생하니 주의하세요.</p>
 </div>
-<div class="sect2">
-<h3 id="_google"><a class="link" href="#_google">Google</a></h3>
+<div class="sect3">
+<h4 id="_google"><a class="link" href="#_google">Google</a></h4>
 <div class="paragraph">
 <p>Google api를 통해서 인증합니다.</p>
 </div>
@@ -1472,22 +1543,20 @@ Content-Length: 181
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_exception_handing"><a class="link" href="#_exception_handing">Exception Handing</a></h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_exception_handing"><a class="link" href="#_exception_handing">Exception Handing</a></h3>
 <div class="paragraph">
 <p>본 문단은 인증이 실패한 경우, 또는 리소스에 접근할 권한이 아닌 경우에 대해 설명합니다.</p>
 </div>
-<div class="sect2">
-<h3 id="_unauthorized401"><a class="link" href="#_unauthorized401">UnAuthorized(401)</a></h3>
 <div class="sect3">
-<h4 id="_access_token이_없을_경우"><a class="link" href="#_access_token이_없을_경우">Access Token이 없을 경우</a></h4>
+<h4 id="_unauthorized401"><a class="link" href="#_unauthorized401">UnAuthorized(401)</a></h4>
+<div class="sect4">
+<h5 id="_access_token이_없을_경우"><a class="link" href="#_access_token이_없을_경우">Access Token이 없을 경우</a></h5>
 <div class="paragraph">
 <p>Access Token이 없을 경우 인증이 필요한 url에 접근할 수 없습니다.</p>
 </div>
-<div class="sect4">
-<h5 id="_access_token이_없을_경우_http_request"><a class="link" href="#_access_token이_없을_경우_http_request">HTTP request</a></h5>
+<div class="sect5">
+<h6 id="_access_token이_없을_경우_http_request"><a class="link" href="#_access_token이_없을_경우_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/users HTTP/1.1
@@ -1495,8 +1564,8 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_access_token이_없을_경우_http_response"><a class="link" href="#_access_token이_없을_경우_http_response">HTTP response</a></h5>
+<div class="sect5">
+<h6 id="_access_token이_없을_경우_http_response"><a class="link" href="#_access_token이_없을_경우_http_response">HTTP response</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 401 Unauthorized
@@ -1510,10 +1579,10 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 189
+Content-Length: 206
 
 {
-  "timestamp" : "2022-08-23 00:02:44",
+  "timestamp" : [ 2022, 8, 27, 20, 37, 46, 741178000 ],
   "status" : 401,
   "statusDetail" : "UNAUTHORIZED",
   "code" : "ACCESS_TOKEN_IS_NULL",
@@ -1523,16 +1592,16 @@ Content-Length: 189
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_access_token이_만료_됬을_경우"><a class="link" href="#_access_token이_만료_됬을_경우">Access Token이 만료 됬을 경우</a></h4>
+<div class="sect4">
+<h5 id="_access_token이_만료_됬을_경우"><a class="link" href="#_access_token이_만료_됬을_경우">Access Token이 만료 됬을 경우</a></h5>
 <div class="paragraph">
 <p>이 경우에는 Access Token이 유효하지만 만료되어서 사용할 수 없습니다.</p>
 </div>
 <div class="paragraph">
 <p><a href="#_refresh">refresh</a>를 통해서 Access Token을 재발급 받아야 인증을 할 수 있습니다.</p>
 </div>
-<div class="sect4">
-<h5 id="_access_token이_만료_됬을_경우_http_request"><a class="link" href="#_access_token이_만료_됬을_경우_http_request">HTTP request</a></h5>
+<div class="sect5">
+<h6 id="_access_token이_만료_됬을_경우_http_request"><a class="link" href="#_access_token이_만료_됬을_경우_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/users HTTP/1.1
@@ -1541,8 +1610,8 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_access_token이_만료_됬을_경우_http_response"><a class="link" href="#_access_token이_만료_됬을_경우_http_response">HTTP response</a></h5>
+<div class="sect5">
+<h6 id="_access_token이_만료_됬을_경우_http_response"><a class="link" href="#_access_token이_만료_됬을_경우_http_response">HTTP response</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 401 Unauthorized
@@ -1556,10 +1625,10 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 185
+Content-Length: 202
 
 {
-  "timestamp" : "2022-08-23 00:02:44",
+  "timestamp" : [ 2022, 8, 27, 20, 37, 46, 756373000 ],
   "status" : 401,
   "statusDetail" : "UNAUTHORIZED",
   "code" : "EXPIRED_ACCESS_TOKEN",
@@ -1569,13 +1638,13 @@ Content-Length: 185
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_access_token이_위조되거나_잘못된_토큰일_경우"><a class="link" href="#_access_token이_위조되거나_잘못된_토큰일_경우">Access Token이 위조되거나 잘못된 토큰일 경우</a></h4>
+<div class="sect4">
+<h5 id="_access_token이_위조되거나_잘못된_토큰일_경우"><a class="link" href="#_access_token이_위조되거나_잘못된_토큰일_경우">Access Token이 위조되거나 잘못된 토큰일 경우</a></h5>
 <div class="paragraph">
 <p>서버에서 Access Token을 Claim화 하기전 위조(또는 잘못)된 토큰으로 판별할 경우 입니다.</p>
 </div>
-<div class="sect4">
-<h5 id="_access_token이_위조되거나_잘못된_토큰일_경우_http_request"><a class="link" href="#_access_token이_위조되거나_잘못된_토큰일_경우_http_request">HTTP request</a></h5>
+<div class="sect5">
+<h6 id="_access_token이_위조되거나_잘못된_토큰일_경우_http_request"><a class="link" href="#_access_token이_위조되거나_잘못된_토큰일_경우_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/users HTTP/1.1
@@ -1584,8 +1653,8 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_access_token이_위조되거나_잘못된_토큰일_경우_http_response"><a class="link" href="#_access_token이_위조되거나_잘못된_토큰일_경우_http_response">HTTP response</a></h5>
+<div class="sect5">
+<h6 id="_access_token이_위조되거나_잘못된_토큰일_경우_http_response"><a class="link" href="#_access_token이_위조되거나_잘못된_토큰일_경우_http_response">HTTP response</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 401 Unauthorized
@@ -1599,10 +1668,10 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 179
+Content-Length: 196
 
 {
-  "timestamp" : "2022-08-23 00:02:44",
+  "timestamp" : [ 2022, 8, 27, 20, 37, 46, 735477000 ],
   "status" : 401,
   "statusDetail" : "UNAUTHORIZED",
   "code" : "INVALID_ACCESS_TOKEN",
@@ -1613,18 +1682,18 @@ Content-Length: 179
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_forbidden403"><a class="link" href="#_forbidden403">Forbidden(403)</a></h3>
 <div class="sect3">
-<h4 id="_사용자_role이_role_guest일_경우"><a class="link" href="#_사용자_role이_role_guest일_경우">사용자 Role이 "ROLE_GUEST"일 경우</a></h4>
+<h4 id="_forbidden403"><a class="link" href="#_forbidden403">Forbidden(403)</a></h4>
+<div class="sect4">
+<h5 id="_사용자_role이_role_guest일_경우"><a class="link" href="#_사용자_role이_role_guest일_경우">사용자 Role이 "ROLE_GUEST"일 경우</a></h5>
 <div class="paragraph">
 <p>OAuth2로 로그인한 유저가 아직 회원가입을 마치지 않을 경우입니다.</p>
 </div>
 <div class="paragraph">
 <p>이 경우 <a href="#_oauth2_회원가입">OAuth2 회원가입</a> 페이지로 리다이렉트하여 회원가입을 마쳐주세요.</p>
 </div>
-<div class="sect4">
-<h5 id="_사용자_role이_role_guest일_경우_http_request"><a class="link" href="#_사용자_role이_role_guest일_경우_http_request">HTTP request</a></h5>
+<div class="sect5">
+<h6 id="_사용자_role이_role_guest일_경우_http_request"><a class="link" href="#_사용자_role이_role_guest일_경우_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/users HTTP/1.1
@@ -1633,8 +1702,8 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_사용자_role이_role_guest일_경우_http_response"><a class="link" href="#_사용자_role이_role_guest일_경우_http_response">HTTP response</a></h5>
+<div class="sect5">
+<h6 id="_사용자_role이_role_guest일_경우_http_response"><a class="link" href="#_사용자_role이_role_guest일_경우_http_response">HTTP response</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 403 Forbidden
@@ -1648,10 +1717,10 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 194
+Content-Length: 211
 
 {
-  "timestamp" : "2022-08-23 00:02:44",
+  "timestamp" : [ 2022, 8, 27, 20, 37, 46, 727004000 ],
   "status" : 403,
   "statusDetail" : "FORBIDDEN",
   "code" : "NEED_SIGN_UP",
@@ -1661,10 +1730,10 @@ Content-Length: 194
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_사용자_role이_권한이_제한된_url에_접근_할_경우"><a class="link" href="#_사용자_role이_권한이_제한된_url에_접근_할_경우">사용자 Role이 권한이 제한된 url에 접근 할 경우</a></h4>
 <div class="sect4">
-<h5 id="_사용자_role이_권한이_제한된_url에_접근_할_경우_http_request"><a class="link" href="#_사용자_role이_권한이_제한된_url에_접근_할_경우_http_request">HTTP request</a></h5>
+<h5 id="_사용자_role이_권한이_제한된_url에_접근_할_경우"><a class="link" href="#_사용자_role이_권한이_제한된_url에_접근_할_경우">사용자 Role이 권한이 제한된 url에 접근 할 경우</a></h5>
+<div class="sect5">
+<h6 id="_사용자_role이_권한이_제한된_url에_접근_할_경우_http_request"><a class="link" href="#_사용자_role이_권한이_제한된_url에_접근_할_경우_http_request">HTTP request</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">PATCH /api/users HTTP/1.1
@@ -1673,8 +1742,8 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="_사용자_role이_권한이_제한된_url에_접근_할_경우_http_response"><a class="link" href="#_사용자_role이_권한이_제한된_url에_접근_할_경우_http_response">HTTP response</a></h5>
+<div class="sect5">
+<h6 id="_사용자_role이_권한이_제한된_url에_접근_할_경우_http_response"><a class="link" href="#_사용자_role이_권한이_제한된_url에_접근_할_경우_http_response">HTTP response</a></h6>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 403 Forbidden
@@ -1688,10 +1757,10 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 183
+Content-Length: 200
 
 {
-  "timestamp" : "2022-08-23 00:02:44",
+  "timestamp" : [ 2022, 8, 27, 20, 37, 46, 749140000 ],
   "status" : 403,
   "statusDetail" : "FORBIDDEN",
   "code" : "NO_PERMISSION",
@@ -1705,10 +1774,1080 @@ Content-Length: 183
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_recruit"><a class="link" href="#_recruit">Recruit</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_개요_2"><a class="link" href="#_개요_2">개요</a></h3>
+<div class="paragraph">
+<p>이 문단에서는 지원 기간 정보 또는 지원서에 관한 api를 설명합니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_지원_기간"><a class="link" href="#_지원_기간">지원 기간</a></h3>
+<div class="paragraph">
+<p>지원 기간에 관한 uri는 인증 되지 않은 유저도 요청할 수 있습니다. 또 role에 제약을 받지않습니다.</p>
+</div>
+<div class="sect3">
+<h4 id="_모든_지원_기간_정보_요청"><a class="link" href="#_모든_지원_기간_정보_요청">모든 지원 기간 정보 요청</a></h4>
+<div class="paragraph">
+<p>서버 DB에 존재하는 모든 지원 기간 정보들을 반환합니다.</p>
+</div>
+<div class="sect4">
+<h5 id="_모든_지원_기간_정보_요청_http_request"><a class="link" href="#_모든_지원_기간_정보_요청_http_request">HTTP request</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/recruit/periods HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_모든_지원_기간_정보_요청_http_response"><a class="link" href="#_모든_지원_기간_정보_요청_http_response">HTTP response</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 772
+
+{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 200,
+  "statusDetail" : "OK",
+  "code" : "GET_RECRUIT_PERIOD",
+  "message" : "지원기간 정보를 반환 했습니다.",
+  "data" : [ {
+    "id" : 3,
+    "yearOf" : "3기",
+    "startDate" : "2022-08-20 20:37:46",
+    "endDate" : "2022-09-03 20:37:46",
+    "questions" : [ "3기 질문1", "3기 질문2", "3기 질문3" ]
+  }, {
+    "id" : 2,
+    "yearOf" : "2기",
+    "startDate" : "2022-03-15 00:00:00",
+    "endDate" : "2022-03-15 23:59:00",
+    "questions" : [ "2기 질문1", "2기 질문2", "2기 질문3" ]
+  }, {
+    "id" : 1,
+    "yearOf" : "1기",
+    "startDate" : "2021-03-01 00:00:00",
+    "endDate" : "2021-03-01 23:59:00",
+    "questions" : [ "1기 질문1", "1기 질문2", "1기 질문3" ]
+  } ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_모든_지원_기간_정보_요청_response_fields"><a class="link" href="#_모든_지원_기간_정보_요청_response_fields">Response fields</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data[].id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recruit period PK</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data[].yearOf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">기수 이름</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data[].startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 시작 시간</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data[].endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 마감 시간</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data[].questions</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 질문들</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_정보가_없을_경우"><a class="link" href="#_정보가_없을_경우">정보가 없을 경우</a></h5>
+<div class="sect5">
+<h6 id="_정보가_없을_경우_http_response"><a class="link" href="#_정보가_없을_경우_http_response">HTTP response</a></h6>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 204 No Content
+Content-Type: application/json
+Content-Length: 210
+
+{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 204,
+  "statusDetail" : "NO_CONTENT",
+  "code" : "NO_RECRUIT_PERIOD_CONTENT",
+  "message" : "지원 기간들의 정보가 없습니다.",
+  "data" : null
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_특정_지원_기간_정보_요청"><a class="link" href="#_특정_지원_기간_정보_요청">특정 지원 기간 정보 요청</a></h4>
+<div class="paragraph">
+<p>Recruit Period PK를 path parameter로 받아서 해당 정보를 반환합니다.</p>
+</div>
+<div class="sect4">
+<h5 id="_특정_지원_기간_정보_요청_http_request"><a class="link" href="#_특정_지원_기간_정보_요청_http_request">HTTP request</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/recruit/periods/3 HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_특정_지원_기간_정보_요청_http_response"><a class="link" href="#_특정_지원_기간_정보_요청_http_response">HTTP response</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 382
+
+{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 200,
+  "statusDetail" : "OK",
+  "code" : "GET_RECRUIT_PERIOD",
+  "message" : "지원기간 정보를 반환 했습니다.",
+  "data" : {
+    "id" : 3,
+    "yearOf" : "3기",
+    "startDate" : "2022-08-20 20:37:46",
+    "endDate" : "2022-09-03 20:37:46",
+    "questions" : [ "3기 질문1", "3기 질문2", "3기 질문3" ]
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_특정_지원_기간_정보_요청_path_parameters"><a class="link" href="#_특정_지원_기간_정보_요청_path_parameters">Path parameters</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. /api/recruit/periods/{recruitPeriodId}</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recruitPeriodId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recruit Period PK</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_특정_지원_기간_정보_요청_response_fields"><a class="link" href="#_특정_지원_기간_정보_요청_response_fields">Response fields</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recruit period PK</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.yearOf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">기수 이름</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 시작 시간</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 마감 시간</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.questions</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 질문들</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_실패_5"><a class="link" href="#_실패_5">실패</a></h5>
+<div class="paragraph">
+<p>아래 사항은 서버가 요청을 거부한 경우입니다.</p>
+</div>
+<div class="sect5">
+<h6 id="_해당_pk를_가진_지원_기간_정보가_없을_경우"><a class="link" href="#_해당_pk를_가진_지원_기간_정보가_없을_경우">해당 PK를 가진 지원 기간 정보가 없을 경우</a></h6>
+<div class="sect6">
+<h7 id="_해당_pk를_가진_지원_기간_정보가_없을_경우_http_response"><a class="link" href="#_해당_pk를_가진_지원_기간_정보가_없을_경우_http_response">HTTP response</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 404 Not Found
+Content-Type: application/json
+Content-Length: 191
+
+{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 404,
+  "statusDetail" : "NOT_FOUND",
+  "code" : "RECRUIT_PERIOD_NOT_FOUND",
+  "message" : "지원 기간이 존재하지 않습니다."
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_최근_지원_기간_정보_반환"><a class="link" href="#_최근_지원_기간_정보_반환">최근 지원 기간 정보 반환</a></h4>
+<div class="paragraph">
+<p>지원이 가능하고 가장 최근 지원 기간 정보를 반환합니다.</p>
+</div>
+<div class="sect4">
+<h5 id="_최근_지원_기간_정보_반환_http_request"><a class="link" href="#_최근_지원_기간_정보_반환_http_request">HTTP request</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/recruit/periods/3 HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_최근_지원_기간_정보_반환_http_response"><a class="link" href="#_최근_지원_기간_정보_반환_http_response">HTTP response</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 382
+
+{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 200,
+  "statusDetail" : "OK",
+  "code" : "GET_RECRUIT_PERIOD",
+  "message" : "지원기간 정보를 반환 했습니다.",
+  "data" : {
+    "id" : 3,
+    "yearOf" : "3기",
+    "startDate" : "2022-08-20 20:37:46",
+    "endDate" : "2022-09-03 20:37:46",
+    "questions" : [ "3기 질문1", "3기 질문2", "3기 질문3" ]
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_최근_지원_기간_정보_반환_path_parameters"><a class="link" href="#_최근_지원_기간_정보_반환_path_parameters">Path parameters</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. /api/recruit/periods/{recruitPeriodId}</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>recruitPeriodId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recruit Period PK</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_최근_지원_기간_정보_반환_response_fields"><a class="link" href="#_최근_지원_기간_정보_반환_response_fields">Response fields</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recruit period PK</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.yearOf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">기수 이름</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.startDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 시작 시간</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.endDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 마감 시간</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.questions</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 질문들</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_실패_6"><a class="link" href="#_실패_6">실패</a></h5>
+<div class="paragraph">
+<p>아래 사항은 서버가 요청을 거부한 경우입니다</p>
+</div>
+<div class="sect5">
+<h6 id="_1_해당_pk를_가진_지원_기간_정보가_없을_경우"><a class="link" href="#_1_해당_pk를_가진_지원_기간_정보가_없을_경우">1. 해당 PK를 가진 지원 기간 정보가 없을 경우</a></h6>
+<div class="sect6">
+<h7 id="_1_해당_pk를_가진_지원_기간_정보가_없을_경우_http_response"><a class="link" href="#_1_해당_pk를_가진_지원_기간_정보가_없을_경우_http_response">HTTP response</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 404 Not Found
+Content-Type: application/json
+Content-Length: 191
+
+{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 404,
+  "statusDetail" : "NOT_FOUND",
+  "code" : "RECRUIT_PERIOD_NOT_FOUND",
+  "message" : "지원 기간이 존재하지 않습니다."
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_2_정보는_찾았지만_지원_기간이_아닐_경우"><a class="link" href="#_2_정보는_찾았지만_지원_기간이_아닐_경우">2. 정보는 찾았지만 지원 기간이 아닐 경우</a></h6>
+<div class="sect6">
+<h7 id="_2_정보는_찾았지만_지원_기간이_아닐_경우_http_response"><a class="link" href="#_2_정보는_찾았지만_지원_기간이_아닐_경우_http_response">HTTP response</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 176
+
+{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 400,
+  "statusDetail" : "BAD_REQUEST",
+  "code" : "NON_RECEPTION_PERIOD",
+  "message" : "지원 기간이 아닙니다."
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_지원서"><a class="link" href="#_지원서">지원서</a></h3>
+<div class="paragraph">
+<p>지원서에 관한 uri는 로그인 된 유저가 필요하며 role에 따라서 요청 할 수 있는 범위가 제한되어 있습니다.</p>
+</div>
+<div class="sect3">
+<h4 id="_자신이_쓴_모든_지원서_정보_요청"><a class="link" href="#_자신이_쓴_모든_지원서_정보_요청">자신이 쓴 모든 지원서 정보 요청</a></h4>
+<div class="paragraph">
+<p>로그인 된 유저의 모든 지원서 정보를 요청합니다.</p>
+</div>
+<div class="paragraph">
+<p>로그인 안한 유저와 role이 GUEST인 유저는 접근 할 수 없습니다.</p>
+</div>
+<div class="paragraph">
+<p>요청에 성공하게 된다면 최신 지원서 순으로 정렬되어 배열로 반환됩니다.</p>
+</div>
+<div class="sect4">
+<h5 id="_자신이_쓴_모든_지원서_정보_요청_http_request"><a class="link" href="#_자신이_쓴_모든_지원서_정보_요청_http_request">HTTP request</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/recruit/periods/applies HTTP/1.1
+Authorization: Bearer {role이 ROLE_GUEST가 아닌 유저}
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_자신이_쓴_모든_지원서_정보_요청_response_body"><a class="link" href="#_자신이_쓴_모든_지원서_정보_요청_response_body">Response body</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 200,
+  "statusDetail" : "OK",
+  "code" : "GET_RECRUIT_APPLY",
+  "message" : "지원서 정보를 반환 했습니다",
+  "data" : [ {
+    "id" : 1,
+    "user" : {
+      "userId" : "test",
+      "username" : "test_name",
+      "email" : "test@gmail.com",
+      "profileImageUrl" : "url",
+      "role" : "ROLE_UNCONFIRMED"
+    },
+    "recruitPeriod" : {
+      "id" : 3,
+      "yearOf" : "3기",
+      "startDate" : "2022-08-20 20:37:46",
+      "endDate" : "2022-09-03 20:37:46",
+      "questions" : [ "3기 질문1", "3기 질문2", "3기 질문3" ]
+    },
+    "content" : {
+      "3기 질문1" : "답변1",
+      "3기 질문2" : "답변2",
+      "3기 질문3" : "답변3"
+    },
+    "isPass" : "검토중",
+    "createdDate" : "2022-08-27 20:37:46",
+    "modifiedDate" : "2022-08-27 20:37:46"
+  } ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_자신이_쓴_모든_지원서_정보_요청_request_headers"><a class="link" href="#_자신이_쓴_모든_지원서_정보_요청_request_headers">Request headers</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{role이 ROLE_GUEST가 아닌 유저}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_자신이_쓴_모든_지원서_정보_요청_response_fields"><a class="link" href="#_자신이_쓴_모든_지원서_정보_요청_response_fields">Response fields</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data[].id</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원서 PK</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data[].user</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원서 유저 정보</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data[].recruitPeriod</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 기간 정보</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data[].content</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Object</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">질문에 대한 답변들</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data[].isPass</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">합격 여부(검토중, 합격, 불합격)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data[].createdDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">생성 시간</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data[].modifiedDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">수정 시간</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+<p>지원서 목록이 없다면 다음과 같은 response body를 받습니다.</p>
+</div>
+<div class="sect4">
+<h5 id="_자신이_쓴_모든_지원서_정보_요청_response_body"><a class="link" href="#_자신이_쓴_모든_지원서_정보_요청_response_body">Response body</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 204,
+  "statusDetail" : "NO_CONTENT",
+  "code" : "NO_RECRUIT_APPLY_CONTENT",
+  "message" : "지원서들의 정보가 없습니다",
+  "data" : null
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_실패_7"><a class="link" href="#_실패_7">실패</a></h5>
+<div class="sect5">
+<h6 id="_현재_로그인_된_유저가_db에_없는_경우"><a class="link" href="#_현재_로그인_된_유저가_db에_없는_경우">현재 로그인 된 유저가 db에 없는 경우</a></h6>
+<div class="sect6">
+<h7 id="_현재_로그인_된_유저가_db에_없는_경우_response_body"><a class="link" href="#_현재_로그인_된_유저가_db에_없는_경우_response_body">Response body</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 404,
+  "statusDetail" : "NOT_FOUND",
+  "code" : "USER_NOT_FOUND",
+  "message" : "user가 존재하지 않습니다."
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_지원서_작성"><a class="link" href="#_지원서_작성">지원서 작성</a></h4>
+<div class="paragraph">
+<p>지원서를 작성합니다. 로그인이 필요하며 해당 유저의 role이 UNCONFIRMED 상태여만 요청 가능합니다.</p>
+</div>
+<div class="paragraph">
+<p>request body에는 객체 형태로 key는 질문 내용, value는 질문에 대한 답변 형태로만 보내면 됩니다.</p>
+</div>
+<div class="sect4">
+<h5 id="_지원서_작성_http_request"><a class="link" href="#_지원서_작성_http_request">HTTP request</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/recruit/periods/3/applies HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {role이 ROLE_UNCONFIRMED인 access token}
+Content-Length: 92
+Host: localhost:8080
+
+{
+  "3기 질문1" : "답변1",
+  "3기 질문2" : "답변2",
+  "3기 질문3" : "답변3"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_지원서_작성_response_body"><a class="link" href="#_지원서_작성_response_body">Response body</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 201,
+  "statusDetail" : "CREATED",
+  "code" : "CREATE_RECRUIT_APPLY",
+  "message" : "지원서를 생성했습니다.",
+  "data" : {
+    "targetPath" : "/api/periods/3/applies/1"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_지원서_작성_path_parameters"><a class="link" href="#_지원서_작성_path_parameters">Path parameters</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. /api/recruit/periods/{periodId}/applies</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>periodId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 가능한 Recruit Period PK</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_지원서_작성_request_headers"><a class="link" href="#_지원서_작성_request_headers">Request headers</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{role이 ROLE_UNCONFIRMED인 access token}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_지원서_작성_response_fields"><a class="link" href="#_지원서_작성_response_fields">Response fields</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.targetPath</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">접근 할 수 있는 지원서 uri</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_실패_8"><a class="link" href="#_실패_8">실패</a></h5>
+<div class="sect5">
+<h6 id="_1_해당_pk로_존재하는_지원_기간_정보가_없을_때"><a class="link" href="#_1_해당_pk로_존재하는_지원_기간_정보가_없을_때">1. 해당 pk로 존재하는 지원 기간 정보가 없을 때</a></h6>
+<div class="sect6">
+<h7 id="_1_해당_pk로_존재하는_지원_기간_정보가_없을_때_response_body"><a class="link" href="#_1_해당_pk로_존재하는_지원_기간_정보가_없을_때_response_body">Response body</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 404,
+  "statusDetail" : "NOT_FOUND",
+  "code" : "RECRUIT_PERIOD_NOT_FOUND",
+  "message" : "지원 기간이 존재하지 않습니다."
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_2_지원_기간이_아닐_때"><a class="link" href="#_2_지원_기간이_아닐_때">2. 지원 기간이 아닐 때</a></h6>
+<div class="sect6">
+<h7 id="_2_지원_기간이_아닐_때_response_body"><a class="link" href="#_2_지원_기간이_아닐_때_response_body">Response body</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 400,
+  "statusDetail" : "BAD_REQUEST",
+  "code" : "NON_RECEPTION_PERIOD",
+  "message" : "지원 기간이 아닙니다."
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_3_로그인_한_유저가_이미_해당_기간에_지원서가_작성되어_있을_때"><a class="link" href="#_3_로그인_한_유저가_이미_해당_기간에_지원서가_작성되어_있을_때">3. 로그인 한 유저가 이미 해당 기간에 지원서가 작성되어 있을 때</a></h6>
+<div class="sect6">
+<h7 id="_3_로그인_한_유저가_이미_해당_기간에_지원서가_작성되어_있을_때_response_body"><a class="link" href="#_3_로그인_한_유저가_이미_해당_기간에_지원서가_작성되어_있을_때_response_body">Response body</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 400,
+  "statusDetail" : "BAD_REQUEST",
+  "code" : "ALREADY_APPLIED_BY_USER",
+  "message" : "해당 유저는 이미 지원했습니다."
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_지원서_수정"><a class="link" href="#_지원서_수정">지원서 수정</a></h4>
+<div class="paragraph">
+<p><a href="#_지원서_작성">지원서 작성</a>과 유사합니다.</p>
+</div>
+<div class="sect4">
+<h5 id="_지원서_수정_http_request"><a class="link" href="#_지원서_수정_http_request">HTTP request</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">PATCH /api/recruit/periods/3/applies/1 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {role이 ROLE_UNCONFIRMED인 access token}
+Content-Length: 92
+Host: localhost:8080
+
+{
+  "3기 질문1" : "답변1",
+  "3기 질문2" : "답변2",
+  "3기 질문3" : "답변3"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_지원서_수정_response_body"><a class="link" href="#_지원서_수정_response_body">Response body</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 200,
+  "statusDetail" : "OK",
+  "code" : "UPDATE_RECRUIT_APPLY",
+  "message" : "지원서를 성공적으로 수정했습니다.",
+  "data" : {
+    "targetPath" : "/api/periods/3/applies/1"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_지원서_수정_path_parameters"><a class="link" href="#_지원서_수정_path_parameters">Path parameters</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. /api/recruit/periods/{periodId}/applies/{applyId}</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>periodId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 가능한 Recruit Period PK</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>applyId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">수정 하고 싶은 지원서</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_지원서_수정_request_headers"><a class="link" href="#_지원서_수정_request_headers">Request headers</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{role이 ROLE_UNCONFIRMED인 access token}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_지원서_수정_response_fields"><a class="link" href="#_지원서_수정_response_fields">Response fields</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.targetPath</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">접근 할 수 있는 지원서 uri</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_실패_9"><a class="link" href="#_실패_9">실패</a></h5>
+<div class="sect5">
+<h6 id="_1_해당_pk로_존재하는_지원서_정보가_없을_때"><a class="link" href="#_1_해당_pk로_존재하는_지원서_정보가_없을_때">1. 해당 pk로 존재하는 지원서 정보가 없을 때</a></h6>
+<div class="sect6">
+<h7 id="_1_해당_pk로_존재하는_지원서_정보가_없을_때_response_body"><a class="link" href="#_1_해당_pk로_존재하는_지원서_정보가_없을_때_response_body">Response body</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 404,
+  "statusDetail" : "NOT_FOUND",
+  "code" : "RECRUIT_APPLY_NOT_FOUND",
+  "message" : "지원서가 존재하지 않습니다"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_2_수정하는_지원서의_작성자와_현재_로그인_한_유저_정보가_다를_때"><a class="link" href="#_2_수정하는_지원서의_작성자와_현재_로그인_한_유저_정보가_다를_때">2. 수정하는 지원서의 작성자와 현재 로그인 한 유저 정보가 다를 때</a></h6>
+<div class="sect6">
+<h7 id="_2_수정하는_지원서의_작성자와_현재_로그인_한_유저_정보가_다를_때_response_body"><a class="link" href="#_2_수정하는_지원서의_작성자와_현재_로그인_한_유저_정보가_다를_때_response_body">Response body</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 403,
+  "statusDetail" : "FORBIDDEN",
+  "code" : "NO_RECRUIT_APPLY_PERMISSION",
+  "message" : "요청한 사용자와 지원 작성 사용자가 다릅니다."
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_3_지원_기간이_아닐_때"><a class="link" href="#_3_지원_기간이_아닐_때">3. 지원 기간이 아닐 때</a></h6>
+<div class="sect6">
+<h7 id="_3_지원_기간이_아닐_때_response_body"><a class="link" href="#_3_지원_기간이_아닐_때_response_body">Response body</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 400,
+  "statusDetail" : "BAD_REQUEST",
+  "code" : "NON_RECEPTION_PERIOD",
+  "message" : "지원 기간이 아닙니다."
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_지원서_삭제"><a class="link" href="#_지원서_삭제">지원서 삭제</a></h4>
+<div class="paragraph">
+<p>지원서를 삭제합니다. 로그인이 필요하며 해당 유저의 role이 UNCONFIRMED 상태여만 요청 가능합니다.</p>
+</div>
+<div class="sect4">
+<h5 id="_지원서_삭제_http_request"><a class="link" href="#_지원서_삭제_http_request">HTTP request</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /api/recruit/periods/3/applies/1 HTTP/1.1
+Authorization: Bearer {role이 ROLE_UNCONFIRMED인 access token}
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_지원서_삭제_http_response"><a class="link" href="#_지원서_삭제_http_response">HTTP response</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 202
+
+{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 200,
+  "statusDetail" : "OK",
+  "code" : "DELETE_RECRUIT_APPLY",
+  "message" : "지원서를 성공적으로 삭제했습니다.",
+  "data" : null
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_지원서_삭제_path_parameters"><a class="link" href="#_지원서_삭제_path_parameters">Path parameters</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. /api/recruit/periods/{periodId}/applies/{applyId}</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>periodId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">지원 가능한 Recruit Period PK</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>applyId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">수정 하고 싶은 지원서</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_지원서_삭제_request_headers"><a class="link" href="#_지원서_삭제_request_headers">Request headers</a></h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{role이 ROLE_UNCONFIRMED인 access token}</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_실패_10"><a class="link" href="#_실패_10">실패</a></h5>
+<div class="sect5">
+<h6 id="_1_해당_pk로_존재하는_지원서_정보가_없을_때_2"><a class="link" href="#_1_해당_pk로_존재하는_지원서_정보가_없을_때_2">1. 해당 pk로 존재하는 지원서 정보가 없을 때</a></h6>
+<div class="sect6">
+<h7 id="_1_해당_pk로_존재하는_지원서_정보가_없을_때_2_response_body"><a class="link" href="#_1_해당_pk로_존재하는_지원서_정보가_없을_때_2_response_body">Response body</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 404,
+  "statusDetail" : "NOT_FOUND",
+  "code" : "RECRUIT_APPLY_NOT_FOUND",
+  "message" : "지원서가 존재하지 않습니다"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_2_삭제하는_지원서의_작성자와_현재_로그인_한_유저_정보가_다를_때"><a class="link" href="#_2_삭제하는_지원서의_작성자와_현재_로그인_한_유저_정보가_다를_때">2. 삭제하는 지원서의 작성자와 현재 로그인 한 유저 정보가 다를 때</a></h6>
+<div class="sect6">
+<h7 id="_2_삭제하는_지원서의_작성자와_현재_로그인_한_유저_정보가_다를_때_response_body"><a class="link" href="#_2_삭제하는_지원서의_작성자와_현재_로그인_한_유저_정보가_다를_때_response_body">Response body</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 403,
+  "statusDetail" : "FORBIDDEN",
+  "code" : "NO_RECRUIT_APPLY_PERMISSION",
+  "message" : "요청한 사용자와 지원 작성 사용자가 다릅니다."
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_3_지원_기간이_아닐_때_2"><a class="link" href="#_3_지원_기간이_아닐_때_2">3. 지원 기간이 아닐 때</a></h6>
+<div class="sect6">
+<h7 id="_3_지원_기간이_아닐_때_2_response_body"><a class="link" href="#_3_지원_기간이_아닐_때_2_response_body">Response body</a></h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code>{
+  "timestamp" : "2022-08-27 20:37:46",
+  "status" : 400,
+  "statusDetail" : "BAD_REQUEST",
+  "code" : "NON_RECEPTION_PERIOD",
+  "message" : "지원 기간이 아닙니다."
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2022-08-22 20:48:33 +0900
+Last updated 2022-08-27 14:56:59 +0900
 </div>
 </div>
 </body>
