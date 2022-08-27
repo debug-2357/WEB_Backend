@@ -1,4 +1,4 @@
-package com.debug.api.service;
+package com.debug.api.service.user;
 
 import com.debug.api.entity.user.User;
 import com.debug.api.entity.user.UserRefreshToken;

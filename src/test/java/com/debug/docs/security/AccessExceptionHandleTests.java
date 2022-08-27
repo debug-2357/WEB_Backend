@@ -2,8 +2,8 @@ package com.debug.docs.security;
 
 import com.debug.api.controller.user.UserController;
 import com.debug.api.repository.user.UserRefreshTokenRepository;
-import com.debug.api.service.UserRefreshTokenService;
-import com.debug.api.service.UserService;
+import com.debug.api.service.user.UserRefreshTokenService;
+import com.debug.api.service.user.UserService;
 import com.debug.config.properties.AppProperties;
 import com.debug.config.properties.CorsProperties;
 import com.debug.config.security.SecurityConfig;

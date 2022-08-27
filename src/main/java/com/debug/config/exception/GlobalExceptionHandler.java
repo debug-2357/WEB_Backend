@@ -54,4 +54,28 @@ public class GlobalExceptionHandler {
         return FailureResponseBody.toResponseEntity(e.getStatusEnum());
     }
 
+    @ExceptionHandler(NonReceptionPeriodException.class)
+    public ResponseEntity<FailureResponseBody> handleNonReceptionPeriodException(NonReceptionPeriodException e) {
+        return FailureResponseBody.toResponseEntity(e.getStatusEnum());
+    }
+
+    @ExceptionHandler(RecruitPeriodNotFoundException.class)
+    public ResponseEntity<FailureResponseBody> handleRecruitPeriodNotFoundException(RecruitPeriodNotFoundException e) {
+        return FailureResponseBody.toResponseEntity(e.getStatusEnum());
+    }
+
+    @ExceptionHandler(AlreadyAppliedByUserException.class)
+    public ResponseEntity<FailureResponseBody> handleAlreadyAppliedByUserException(AlreadyAppliedByUserException e) {
+        return FailureResponseBody.toResponseEntity(e.getStatusEnum());
+    }
+
+    @ExceptionHandler(RecruitApplyNotFoundException.class)
+    public ResponseEntity<FailureResponseBody> handleRecruitApplyNotFoundException(RecruitApplyNotFoundException e) {
+        return FailureResponseBody.toResponseEntity(e.getStatusEnum());
+    }
+
+    @ExceptionHandler(NoRecruitApplyPermissionException.class)
+    public ResponseEntity<FailureResponseBody> handleNoRecruitApplyPermissionException(NoRecruitApplyPermissionException e) {
+        return FailureResponseBody.toResponseEntity(e.getStatusEnum());
+    }
 }

@@ -4,7 +4,7 @@ import com.debug.api.dto.request.RegisterRequest;
 import com.debug.api.dto.response.UserResponse;
 import com.debug.api.exception.InvalidPasswordException;
 import com.debug.api.exception.UserIdAlreadyInUseException;
-import com.debug.api.service.UserService;
+import com.debug.api.service.user.UserService;
 import com.debug.common.StatusEnum;
 import com.debug.common.response.SuccessResponseBody;
 import lombok.RequiredArgsConstructor;

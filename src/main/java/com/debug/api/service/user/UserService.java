@@ -1,4 +1,4 @@
-package com.debug.api.service;
+package com.debug.api.service.user;
 
 import com.debug.api.dto.request.RegisterRequest;
 import com.debug.api.dto.response.UserResponse;
@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -35,9 +37,19 @@ public class UserService {
 
     @Transactional
     public void createUser(RegisterRequest registerRequest) {
+        boolean isExistUser = true;
+        String randomString = null;
+
+        while (isExistUser) {
+            randomString = UUID.randomUUID().toString();
+            if (!userRepository.existsByOAuth2UserId(randomString)) {
+                isExistUser = false;
+            }
+        }
+
         User user = User.builder()
                 .userId(registerRequest.getUserId())
-                .OAuth2UserId("")
+                .OAuth2UserId(randomString)
                 .username(registerRequest.getUsername())
                 .password(passwordEncoder.encode(registerRequest.getPassword1()))
                 .email(registerRequest.getEmail())
