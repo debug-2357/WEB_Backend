@@ -1,11 +1,13 @@
 package com.debug.common.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Getter
 public abstract class AbstractResponseBody {
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     LocalDateTime timestamp;
     int status;
     String statusDetail;
