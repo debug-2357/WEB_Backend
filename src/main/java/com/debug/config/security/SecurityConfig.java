@@ -117,18 +117,34 @@ public class SecurityConfig {
                     // TODO 2022.08.01 uri 마다 권한 설정 해줘야함 - 현수
                     .authorizeRequests()
                     .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
-//                    .antMatchers("/", "/oauth2/**", "/api/auth/**").permitAll()
+                // OAuth2 권한 설정
+                .antMatchers("/oauth2/**").permitAll()
+                // User api 권한 설정
                 .antMatchers(HttpMethod.GET, "/api/users")
                     .hasAnyAuthority(
                             RoleType.ADMIN.getAuthority(),
                             RoleType.UNCONFIRMED.getAuthority(),
                             RoleType.CONFIRM.getAuthority()
                             )
+                .antMatchers(HttpMethod.GET, "/api/exists/**")
+                    .permitAll()
+                .antMatchers(HttpMethod.POST, "/api/users")
+                    .anonymous()
                 .antMatchers(HttpMethod.PATCH, "/api/users").hasAuthority(RoleType.GUEST.getAuthority())
+                // Auth api 권한 설정
+                .antMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/auth/refresh").authenticated()
+                // Recruit api 권한 설정
+                .antMatchers("/api/recruit/periods/**", "/api/recruit/periods/applies")
+                    .hasAnyAuthority(
+                        RoleType.ADMIN.getAuthority(),
+                        RoleType.UNCONFIRMED.getAuthority(),
+                        RoleType.CONFIRM.getAuthority()
+                    )
+                .antMatchers("/api/recruit/periods/**/applies/**")
+                    .hasAuthority(RoleType.UNCONFIRMED.getAuthority())
+                .antMatchers("/admin/**").hasAnyAuthority(RoleType.ADMIN.getAuthority())
                 .anyRequest().permitAll()
-//                    .antMatchers("/api/**").hasAnyAuthority(RoleType.UNCONFIRMED.getCode())
-//                    .antMatchers("/api/**/admin/**").hasAnyAuthority(RoleType.ADMIN.getAuthority())
-//                    .anyRequest().authenticated()
                 .and()
                     .oauth2Login()
                     .authorizationEndpoint()
