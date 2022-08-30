@@ -1,6 +1,6 @@
 package com.debug.config.exception;
 
-import com.debug.api.exception.*;
+import com.debug.common.exception.*;
 import com.debug.common.response.FailureResponseBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

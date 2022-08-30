@@ -2,8 +2,8 @@ package com.debug.api.service.user;
 
 import com.debug.api.dto.request.RegisterRequest;
 import com.debug.api.dto.response.UserResponse;
-import com.debug.api.entity.user.User;
-import com.debug.api.exception.UserNotFoundException;
+import com.debug.domain.entity.user.User;
+import com.debug.common.exception.UserNotFoundException;
 import com.debug.api.repository.user.UserRepository;
 import com.debug.oauth.entity.RoleType;
 import lombok.RequiredArgsConstructor;

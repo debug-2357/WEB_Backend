@@ -1,7 +1,7 @@
-package com.debug.api.entity.recruit;
+package com.debug.domain.entity.recruit;
 
-import com.debug.api.entity.BaseTimeEntity;
-import com.debug.api.entity.user.User;
+import com.debug.domain.entity.BaseTimeEntity;
+import com.debug.domain.entity.user.User;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

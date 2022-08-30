@@ -1,4 +1,4 @@
-package com.debug.api.entity.user;
+package com.debug.domain.entity.user;
 
 import lombok.Builder;
 import lombok.Getter;

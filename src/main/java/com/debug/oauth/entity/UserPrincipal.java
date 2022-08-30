@@ -1,6 +1,6 @@
 package com.debug.oauth.entity;
 
-import com.debug.api.entity.user.User;
+import com.debug.domain.entity.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

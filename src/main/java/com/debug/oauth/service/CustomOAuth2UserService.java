@@ -1,6 +1,6 @@
 package com.debug.oauth.service;
 
-import com.debug.api.entity.user.User;
+import com.debug.domain.entity.user.User;
 import com.debug.api.repository.user.UserRepository;
 import com.debug.oauth.entity.ProviderType;
 import com.debug.oauth.entity.RoleType;

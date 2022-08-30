@@ -1,9 +1,9 @@
 package com.debug.api.service.user;
 
-import com.debug.api.entity.user.User;
-import com.debug.api.entity.user.UserRefreshToken;
-import com.debug.api.exception.RefreshTokenNotFoundException;
-import com.debug.api.exception.UserNotFoundException;
+import com.debug.domain.entity.user.User;
+import com.debug.domain.entity.user.UserRefreshToken;
+import com.debug.common.exception.RefreshTokenNotFoundException;
+import com.debug.common.exception.UserNotFoundException;
 import com.debug.api.repository.user.UserRefreshTokenRepository;
 import com.debug.api.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;

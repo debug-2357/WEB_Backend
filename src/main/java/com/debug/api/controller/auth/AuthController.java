@@ -1,12 +1,12 @@
 package com.debug.api.controller.auth;
 
 import com.debug.api.dto.request.AuthRequest;
-import com.debug.api.entity.user.User;
-import com.debug.api.entity.user.UserRefreshToken;
-import com.debug.api.exception.InvalidAccessTokenException;
-import com.debug.api.exception.InvalidRefreshTokenException;
-import com.debug.api.exception.LoginFailedException;
-import com.debug.api.exception.UnexpiredAccessTokenException;
+import com.debug.domain.entity.user.User;
+import com.debug.domain.entity.user.UserRefreshToken;
+import com.debug.common.exception.InvalidAccessTokenException;
+import com.debug.common.exception.InvalidRefreshTokenException;
+import com.debug.common.exception.LoginFailedException;
+import com.debug.common.exception.UnexpiredAccessTokenException;
 import com.debug.api.service.user.UserRefreshTokenService;
 import com.debug.common.StatusEnum;
 import com.debug.common.response.SuccessResponseBody;

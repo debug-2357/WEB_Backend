@@ -1,8 +1,8 @@
 package com.debug.api.repository.recruit;
 
-import com.debug.api.entity.recruit.RecruitApply;
-import com.debug.api.entity.recruit.RecruitPeriod;
-import com.debug.api.entity.user.User;
+import com.debug.domain.entity.recruit.RecruitApply;
+import com.debug.domain.entity.recruit.RecruitPeriod;
+import com.debug.domain.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.debug.api.entity.user;
+package com.debug.domain.entity.user;
 
-import com.debug.api.entity.BaseTimeEntity;
+import com.debug.domain.entity.BaseTimeEntity;
 import com.debug.oauth.entity.ProviderType;
 import com.debug.oauth.entity.RoleType;
 import lombok.Builder;

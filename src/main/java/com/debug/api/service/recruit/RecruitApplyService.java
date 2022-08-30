@@ -1,13 +1,13 @@
 package com.debug.api.service.recruit;
 
 import com.debug.api.dto.response.RecruitApplyResponse;
-import com.debug.api.entity.recruit.RecruitApply;
-import com.debug.api.entity.recruit.RecruitPeriod;
-import com.debug.api.entity.user.User;
-import com.debug.api.exception.*;
+import com.debug.domain.entity.recruit.RecruitApply;
+import com.debug.domain.entity.recruit.RecruitPeriod;
+import com.debug.domain.entity.user.User;
 import com.debug.api.repository.recruit.RecruitApplyRepository;
 import com.debug.api.repository.recruit.RecruitPeriodRepository;
 import com.debug.api.repository.user.UserRepository;
+import com.debug.common.exception.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

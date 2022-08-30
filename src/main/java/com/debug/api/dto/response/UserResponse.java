@@ -1,6 +1,6 @@
 package com.debug.api.dto.response;
 
-import com.debug.api.entity.user.User;
+import com.debug.domain.entity.user.User;
 import lombok.Builder;
 import lombok.Getter;
 

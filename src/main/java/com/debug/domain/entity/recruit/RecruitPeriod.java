@@ -1,6 +1,6 @@
-package com.debug.api.entity.recruit;
+package com.debug.domain.entity.recruit;
 
-import com.debug.api.entity.BaseTimeEntity;
+import com.debug.domain.entity.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

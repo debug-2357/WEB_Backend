@@ -1,6 +1,6 @@
 package com.debug.api.dto.response;
 
-import com.debug.api.entity.recruit.RecruitApply;
+import com.debug.domain.entity.recruit.RecruitApply;
 import lombok.Builder;
 import lombok.Getter;
 

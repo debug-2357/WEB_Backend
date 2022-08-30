@@ -1,4 +1,4 @@
-package com.debug.api.entity;
+package com.debug.domain.entity;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

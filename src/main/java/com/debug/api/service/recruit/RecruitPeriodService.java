@@ -1,9 +1,9 @@
 package com.debug.api.service.recruit;
 
 import com.debug.api.dto.response.RecruitPeriodResponse;
-import com.debug.api.entity.recruit.RecruitPeriod;
-import com.debug.api.exception.NonReceptionPeriodException;
-import com.debug.api.exception.RecruitPeriodNotFoundException;
+import com.debug.domain.entity.recruit.RecruitPeriod;
+import com.debug.common.exception.NonReceptionPeriodException;
+import com.debug.common.exception.RecruitPeriodNotFoundException;
 import com.debug.api.repository.recruit.RecruitPeriodRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

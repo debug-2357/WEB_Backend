@@ -1,4 +1,4 @@
-package com.debug.api.exception;
+package com.debug.common.exception;
 
 import com.debug.common.StatusEnum;
 import lombok.Getter;

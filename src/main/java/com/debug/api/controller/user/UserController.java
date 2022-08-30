@@ -2,8 +2,8 @@ package com.debug.api.controller.user;
 
 import com.debug.api.dto.request.RegisterRequest;
 import com.debug.api.dto.response.UserResponse;
-import com.debug.api.exception.InvalidPasswordException;
-import com.debug.api.exception.UserIdAlreadyInUseException;
+import com.debug.common.exception.InvalidPasswordException;
+import com.debug.common.exception.UserIdAlreadyInUseException;
 import com.debug.api.service.user.UserService;
 import com.debug.common.StatusEnum;
 import com.debug.common.response.SuccessResponseBody;
@@ -49,6 +49,7 @@ public class UserController {
         return SuccessResponseBody.toResponseEntity(StatusEnum.CREATE_USER, null);
     }
 
+    // TODO : 2022.08.25 Oauth2 유저는 email과 username을 바꿀 필요없음 dto request를 새로 생성합시다.
     @PatchMapping
     public ResponseEntity<SuccessResponseBody> changeUnconfirmed(@AuthenticationPrincipal UserDetails userDetails,
                                                                  @RequestBody RegisterRequest registerRequest) {
