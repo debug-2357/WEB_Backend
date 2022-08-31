@@ -78,4 +78,8 @@ public class User extends BaseTimeEntity {
         this.email = email;
         this.roleType = RoleType.UNCONFIRMED;
     }
+
+    public void updateRoleType(RoleType roleType) {
+        this.roleType = roleType;
+    }
 }

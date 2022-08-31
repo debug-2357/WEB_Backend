@@ -1,5 +1,6 @@
 package com.debug.domain.entity.recruit;
 
+import com.debug.admin.dto.request.AdminRecruitPeriodRequest;
 import com.debug.domain.entity.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
@@ -44,7 +45,10 @@ public class RecruitPeriod extends BaseTimeEntity {
         this.questions = questions;
     }
 
-    public void updateQuestions(List<String> questions) {
-        this.questions = questions;
+    public void update(AdminRecruitPeriodRequest recruitPeriodRequest) {
+        this.yearOf = recruitPeriodRequest.getYearOf();
+        this.startDate = recruitPeriodRequest.getStartDate();
+        this.endDate = recruitPeriodRequest.getEndDate();
+        this.questions = recruitPeriodRequest.getQuestions();
     }
 }

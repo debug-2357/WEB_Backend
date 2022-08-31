@@ -50,6 +50,10 @@ public class RecruitApply extends BaseTimeEntity {
     public void updateContent(Map<String, String> content) {
         this.content = content;
     }
+
+    public void updateIsPass(Boolean isPass) {
+        this.isPass = isPass;
+    }
 }
 
 @Converter
